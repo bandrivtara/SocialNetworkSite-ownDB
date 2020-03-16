@@ -1,0 +1,26 @@
+.sidebar {
+    grid-area: l-sidebar;
+    background: rgb(216, 214, 214);
+  }
+
+li {
+    color: white;
+}
+
+li:last-child.active {
+  color: red;
+}
+
+.item {
+  margin: 5px;
+  list-style-type: none;
+}
+
+.item a {
+  color: white;
+  text-decoration: none;
+}
+
+.item a.active {
+  color: black;
+}

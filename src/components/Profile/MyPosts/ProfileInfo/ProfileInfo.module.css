@@ -1,0 +1,16 @@
+.top_content {
+    width: 100%;
+}  
+
+.middle_content img {
+    width: 100px;
+    border-radius: 50px;
+}
+
+.middle_content {
+display: flex;
+}
+
+.middle_content.active {
+background-color: violet;
+}
