@@ -6,9 +6,8 @@ import Post from './Post/Post'
 
 const MyPosts = (props)=> {
 
-  
-
-  let postElements = props.postData.map((post) => {
+  let postElements = props.state.postData.map((post) => {
+    
     return (
       <Post message={post.message} likeCounts={post.likesCount} id={post.id}/>
     )

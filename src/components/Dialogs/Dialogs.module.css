@@ -13,8 +13,24 @@
 
 .dialog {
     padding: 10px;
+    display: flex;
+    text-align: center;
+}
+
+.dialog img {
+    width: 60px;
+    border-radius: 60px;
 }
 
 .dialog.active {
     color: red;
 }
+
+.lSide {
+    color: red;
+}
+
+.rSide {
+    color: blue;
+}
+
