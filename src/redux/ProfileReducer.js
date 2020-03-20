@@ -3,14 +3,13 @@ const UPDATE_TEXT = 'UPDATE-TEXT';
 
 
 let initialState = {
-
-    postData: [
-        {id: 1, message: "How are u?", likesCount: 12},
-        {id: 2, message: "It's my second post", likesCount: 15},
-        {id: 3, message: "It's my first post?", likesCount: 1},
-    ],
-
-    newPostText: "",
+        postData: [
+            {id: 1, message: "How are u?", likesCount: 12},
+            {id: 2, message: "It's my second post", likesCount: 15},
+            {id: 3, message: "It's my first post?", likesCount: 1},
+        ],
+    
+        newPostText: "",
 };
 
 
@@ -25,6 +24,7 @@ const profileReducer = (state = initialState, action) => {
             likesCount: 45
         };
         state.postData.push(newPost);
+        state.newPostText = '';
     } 
     
     return state; 

@@ -4,7 +4,7 @@ import classes from './Friends.module.css';
 
 const Friends = (props) => {
 
-    let friendsElement = props.state.map((elem)=><FriendsItem name={elem.name}/>);
+    let friendsElement = props.store.map((elem)=><FriendsItem name={elem.name}/>);
 
     return (
         <div>

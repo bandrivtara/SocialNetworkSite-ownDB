@@ -4,6 +4,7 @@ import classes from './Nav.module.css';
 import { NavLink } from 'react-router-dom';
 
 import Friends from './Friends/Friends';
+import StoreContex from '../../storeContex';
 
 const Nav = (props)=> {
     return (
@@ -16,7 +17,13 @@ const Nav = (props)=> {
             </ul>
             <div className={classes.myFriends}>
                 <h3>Friends</h3>
-                <Friends state={props.state.friendsData}/>
+                <StoreContex.Consumer>{
+                    (store)=>(
+                    
+                    <Friends store={store.getState().nav.friendsData}/>
+                    )
+                }   
+                </StoreContex.Consumer>
             </div>
         </nav>
     )

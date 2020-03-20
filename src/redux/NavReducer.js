@@ -1,10 +1,10 @@
 
 let initialState ={
-    friendsData: [
-        {name: "Kiril", id: 1},
-        {name: "Dmytro", id: 2},
-        {name: "Alla", id: 3},
-    ]
+        friendsData: [
+            {name: "Kiril", id: 1},
+            {name: "Dmytro", id: 2},
+            {name: "Alla", id: 3},
+        ]
 }
 
 const navReducer = (state = initialState, action) => {
