@@ -24,15 +24,18 @@ let initialState = {
 
 
 const dialogReducer = (state = initialState, action) => {
-
+    
     if (action.type === UPDATE_TEXT) {
-        state.newMessageText = action.newText;
+        return {...state, newMessageText: action.newText};
+
     } else if (action.type === SEND_MESSAGE) {
-        let newMessage = {id: 1, 
-            message: state.newMessageText, 
-            myMessage: true
-        }
-        state.messageData.push(newMessage);
+        return {...state, 
+            newMessageText: '',
+            messageData: [...state.messageData, {id: 1, 
+                message: state.newMessageText, 
+                myMessage: true
+            }]
+        };
     }
 
 

@@ -4,7 +4,8 @@ import classes from './Nav.module.css';
 import { NavLink } from 'react-router-dom';
 
 import Friends from './Friends/Friends';
-import StoreContex from '../../storeContex';
+
+import { connect } from 'react-redux';
 
 const Nav = (props)=> {
     return (
@@ -17,17 +18,19 @@ const Nav = (props)=> {
             </ul>
             <div className={classes.myFriends}>
                 <h3>Friends</h3>
-                <StoreContex.Consumer>{
-                    (store)=>(
-                    
-                    <Friends store={store.getState().nav.friendsData}/>
-                    )
-                }   
-                </StoreContex.Consumer>
+                {/* <NewNav /> */}
             </div>
         </nav>
     )
 }
+
+let mapStateToProps = (state) => {
+    return {
+        store: state.nav
+    }
+}
+
+const NewNav = connect(mapStateToProps)(Friends);
 
 export default Nav;
 

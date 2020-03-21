@@ -6,9 +6,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
-import {Provider} from './storeContex';
+import {Provider} from 'react-redux';
 
-let renderEntireTree = () => {
+
     ReactDOM.render(
         <BrowserRouter>
             <Provider store={store}>
@@ -16,9 +16,4 @@ let renderEntireTree = () => {
             </Provider>
         </BrowserRouter>
     , document.getElementById('root'));
-}
 
-store.subscribe(renderEntireTree);
-
-renderEntireTree(store.getState());
-serviceWorker.unregister();

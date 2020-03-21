@@ -20,7 +20,7 @@ const MyPosts = (props)=> {
     
     props.onChangeText(text);
   }
-debugger;
+
   let postElements = state.postData.map((post) => {
     
     return (
