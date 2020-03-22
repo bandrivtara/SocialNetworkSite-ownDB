@@ -1,34 +1,47 @@
 import React from 'react';
 import classes from './Users.module.css';
+import * as axios from 'axios';
+import userPhoto from '../../assets/images/noUser.png'
 
 
-const Users = (props) => {
-    return (
-        <div>
+class Users extends React.Component {
 
-            {props.users.map(e => 
-                <div>
-                    <span>
-                        <div className={classes.img}>Image</div>
-                        <div>
-                            {e.followed ? <button>Unfollow</button> : <button>Follow</button>}
-                        </div>
-                    </span>
-                    <span>
+    componentDidMount() {
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            debugger;
+            this.props.setUsers(response.data.items);
+        });
+    }
+
+        render() {
+        return (
+            <div>
+                {this.props.users.map(e => 
+                    <div>
                         <span>
-                            <div>{e.fullname}</div>
-                            <div>{e.status}</div>
+                            <div className={classes.img}><img src={ e.photos.small != null ? e.photos.small : userPhoto} alt=""/></div>
+                            <div>
+                                {e.followed 
+                                ? <button onClick={() => {this.props.unfollow(e.id)}}>Unfollow</button> 
+                                : <button onClick={() => {this.props.follow(e.id)}}>Follow</button>}
+                            </div>
                         </span>
                         <span>
-                            <div>{e.location.city}</div>
-                            <div>{e.location.country}</div>
+                            <span>
+                                <div>{e.name}</div>
+                                <div>{e.status}</div>
+                            </span>
+                            <span>
+                                <div>{'Ukraine'}</div>
+                                <div>{'Ukraine'}</div>
+                            </span>
                         </span>
-                    </span>
-                </div>
-            )}
-
-        </div>
-    )
+                    </div>
+                )}
+    
+            </div>
+        )
+    }
 }
 
 export default Users;

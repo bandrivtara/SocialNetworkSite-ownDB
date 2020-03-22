@@ -13,6 +13,7 @@ const Nav = (props)=> {
             <ul>
                 <li className={classes.item}><NavLink to="/profile" activeClassName={classes.active}>Profile</NavLink></li>
                 <li className={classes.item}><NavLink to="/dialogs" activeClassName={classes.active}>Messages</NavLink></li>
+                <li className={classes.item}><NavLink to="/users" activeClassName={classes.active}>Users</NavLink></li>
                 <li className={classes.item}><NavLink to="/News" activeClassName={classes.active}>News</NavLink></li>
                 <li className={classes.item}><NavLink to="/Settings" activeClassName={classes.active}>Settings</NavLink></li>
             </ul>
