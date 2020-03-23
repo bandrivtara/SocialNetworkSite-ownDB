@@ -1,9 +1,39 @@
 .header {
     grid-area: header;
-    background: rgb(216, 214, 214);
+    background: #fff;
+    padding: 0px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
-  header img {
-    width: 60px;
-    height: 60px;
-  }
+.header img {
+  width: 30px;
+  height: 30px;
+}
+
+.l_side a {
+  color: rgb(71,75,89);
+  font-size: 32px;
+}
+
+.r_side {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.search {
+  background: rgb(244,244,244);
+  border-radius: 20px;
+}
+
+.avatar {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+
+
+

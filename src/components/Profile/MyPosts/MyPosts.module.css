@@ -1,0 +1,31 @@
+.my_posts {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.standart_button {
+    background-color: rgb(15,193,158);
+    padding: 10px 40px;
+    border-radius: 6px;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.add_post {
+    position: relative;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add_post textarea {
+    width: 100%;
+    resize: none;
+}
+

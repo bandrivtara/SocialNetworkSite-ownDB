@@ -1,0 +1,40 @@
+import React from 'react';
+
+import classes from './PhotoBox.module.css';
+
+const PhotoBox = (props) => {
+    
+    
+    return (
+        <div className={classes.profil_style}>
+            <ul className={classes.img_box}>
+                <li>
+                    <img src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05447_mvffor.jpg" alt="Interior at Nong's" loading="lazy"/>
+                </li>
+                <li>
+                    <img src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814784/photostream-photos/DSC05501_yirmq8.jpg" alt="A kimchi hotdog on a plate" loading="lazy"/>
+                </li>
+                <li>
+                    <img src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814784/photostream-photos/DSC05624_f5b2ud.jpg" alt="Restaurant window with graffiti saying 'water'" loading="lazy"/>
+                </li>
+                <li>
+                    <img src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814784/photostream-photos/DSC05623_dcpfva.jpg" alt="Portrait of Jeremy Tanner" loading="lazy"/>
+                </li>
+                <li>
+                    <img src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814784/photostream-photos/DSC05515_d2gzut.jpg" alt="Jordan, Sarah and Sara on red bikes, waiting" loading="lazy"/>
+                </li>
+                <li>
+                    <img src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814784/photostream-photos/DSC05581_ceocwv.jpg" alt="Barista wearing a hoodie saying 'Coffee Should Be Dope.'" loading="lazy"/>
+                </li>
+                <li>
+                    <img src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814784/photostream-photos/DSC05517_ni2k0p.jpg" alt="Payam crossing the street on a bike" loading="lazy"/>
+                </li>
+            </ul>
+            <div className={classes.profil_photo}>
+                <img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/PL/pl/999/EP0149-CUSA09988_00-AV00000000000001/1553560094000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000" alt=""/>
+            </div>
+        </div>
+    )
+}
+
+export default PhotoBox;

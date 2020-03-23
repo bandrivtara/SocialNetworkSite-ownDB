@@ -1,30 +1,45 @@
 .sidebar {
-    grid-area: l-sidebar;
+    grid-area: sidebar;
     background: rgb(216, 214, 214);
-  }
-
-li {
-    color: white;
+    font-size: 36px;
 }
 
-li:last-child.active {
-  color: red;
+.sidebar p {
+  font-size: 16px;
+}
+
+.sidebar {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  color: #fff;
 }
 
 .item {
-  margin: 5px;
+  width: 100%;
+  height: 100%;
+  background-color: grey;
   list-style-type: none;
 }
 
 .item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: white;
   text-decoration: none;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar .item:nth-child(2n) {
+  background-color: rgb(84,86,84);
 }
 
 .item a.active {
-  color: black;
-}
-
-.myFriends {
-  
+  background-color: rgb(15,193,158);
+  transition: .6s;
 }

@@ -2,10 +2,30 @@ import React from 'react';
 
 import classes from './Header.module.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 const Header = ()=> {
+
     return (
         <header className={classes.header}>
-            <img src="https://image.flaticon.com/icons/png/512/87/87390.png" alt=""/>
+            <div className={classes.l_side}>
+                <a href="#"><FontAwesomeIcon icon="cubes" />Cubes</a> 
+            </div>
+            <div className={classes.r_side}>
+                <div className={classes.search}>
+                    <input type="text" placeholder="Search here"/>
+                    <button><FontAwesomeIcon icon="search" /></button>
+                </div>
+                <div className={classes.notifications}>
+                    <FontAwesomeIcon icon="bell" />
+                </div>
+                <div className={classes.messages}>
+                    <FontAwesomeIcon icon="envelope" />
+                </div>
+                <div className={classes.avatar}>
+                    <p>Taras Bandrivskyy</p>
+                </div>
+            </div>
         </header>
     );
 }

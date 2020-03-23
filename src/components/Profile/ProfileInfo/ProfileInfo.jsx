@@ -2,14 +2,22 @@ import React from 'react';
 
 import classes from './ProfileInfo.module.css';
 
+import PhotoBox from './PhotoBox/PhotoBox';
+
 const ProfileInfo = (props)=> {
 
     return (
-      <div>
-        <div className={classes.top_content}><img src="https://sppc.in/wp-content/uploads/2017/09/image-4-1-1170x274.jpg" alt=""/></div>
-        <div className={`${classes.middle_content} ${classes.active}`}>
-          <img src="https://cdn.pixabay.com/photo/2020/03/07/11/54/the-fog-4909513__340.jpg" alt=""/>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, quo!</p>
+      <div className={classes.profile_info}>
+        <PhotoBox />
+        <div className={classes.status}>
+          <h2>Taras Bandrivskyy</h2>
+          <p>Welcome to the offical account of Anna Morgan. Success is in the PIXELS, #pixels</p>
+          <button className={classes.standart_button}>Following</button>
+        </div>
+        <div className={classes.statistic}>
+          <p>Posts <span>15</span></p>
+          <p>Followers <span>700</span></p>
+          <p>Followings <span>854</span></p>
         </div>
       </div>
     );
