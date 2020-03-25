@@ -30,7 +30,7 @@ const Nav = (props)=> {
                     </NavLink>
                 </div>
                 <div className={classes.item}>
-                    <NavLink to="/News" activeClassName={classes.active}>
+                    <NavLink to="/music" activeClassName={classes.active}>
                         <FontAwesomeIcon icon="music" />
                         <p>Music</p>
                     </NavLink>
