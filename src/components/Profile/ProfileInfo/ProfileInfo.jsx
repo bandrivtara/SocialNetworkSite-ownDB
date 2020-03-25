@@ -5,13 +5,14 @@ import classes from './ProfileInfo.module.css';
 import PhotoBox from './PhotoBox/PhotoBox';
 
 const ProfileInfo = (props)=> {
-
+  
     return (
+      
       <div className={classes.profile_info}>
-        <PhotoBox />
+        <PhotoBox profilePhoto={props.profile.photos.small}/>
         <div className={classes.status}>
-          <h2>Taras Bandrivskyy</h2>
-          <p>Welcome to the offical account of Anna Morgan. Success is in the PIXELS, #pixels</p>
+          <h2>{props.profile.fullName}</h2>
+          <p>{props.profile.aboutMe}</p>
           <button className={classes.standart_button}>Following</button>
         </div>
         <div className={classes.statistic}>

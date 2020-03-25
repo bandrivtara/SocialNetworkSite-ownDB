@@ -2,8 +2,7 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import * as axios from 'axios';
 import Users from './Users';
-import { setUsersAC, unfollowAC, followAC, setCurrentPageAC, setTotalCountAC, toogleIsFetchingAC } from '../../redux/UsersReducer';
-import preloader from '../../assets/images/preloader.svg'
+import { setUsers, unfollow, follow, setCurrentPage, setTotalCount, toggleIsFetching } from '../../redux/UsersReducer';
 import Preloader from '../common/Preloader';
 
 class UsersAPIComponent extends React.Component {
@@ -30,7 +29,6 @@ class UsersAPIComponent extends React.Component {
 
     render() {
         return <Fragment>
-            
             <Users 
             totalUsersCount = {this.props.totalUsersCount} 
             pageSize = {this.props.pageSize} 
@@ -55,28 +53,12 @@ let mapSateToProps = (state) => {
     }
 }
 
-let mapDispathToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId))
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowAC(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users))
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber))
-        },
-        setTotalCount: (totalCount) => {
-            dispatch(setTotalCountAC(totalCount))
-        },
-        toggleIsFetching: (isFetching) => {
-            dispatch(toogleIsFetchingAC(isFetching))
-        }
-    }
-}
-
-
-export default connect(mapSateToProps, mapDispathToProps)(UsersAPIComponent);
+export default connect(mapSateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalCount,
+    toggleIsFetching
+})
+(UsersAPIComponent);
