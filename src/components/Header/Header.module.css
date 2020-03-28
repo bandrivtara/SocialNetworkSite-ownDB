@@ -29,9 +29,13 @@
   border-radius: 20px;
 }
 
-.avatar {
+.login_block {
   text-transform: uppercase;
   font-size: 14px;
+}
+
+.login_block a {
+  color: rgb(132,133,133);
 }
 
 

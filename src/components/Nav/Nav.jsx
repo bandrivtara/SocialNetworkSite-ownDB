@@ -4,9 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classes from './Nav.module.css';
 import { NavLink } from 'react-router-dom';
 
-import Friends from './Friends/Friends';
-
-import { connect } from 'react-redux';
 
 const Nav = (props)=> {
     return (
@@ -45,13 +42,6 @@ const Nav = (props)=> {
     )
 }
 
-let mapStateToProps = (state) => {
-    return {
-        store: state.nav
-    }
-}
-
-const NewNav = connect(mapStateToProps)(Friends);
 
 export default Nav;
 

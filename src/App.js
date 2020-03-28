@@ -12,6 +12,7 @@ import UsersContainer from './components/Users/UsersContainer';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers, faMusic } from '@fortawesome/free-solid-svg-icons';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 
 library.add(fab, faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers, faMusic );
@@ -19,7 +20,7 @@ library.add(fab, faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers,
 function App(props) {
   return (
     <div className="app-wrapper">
-        <Header />
+        <HeaderContainer />
         <Nav />
         <div className="app-wrapper-content">
           <Route path='/profile/:userId?' render={() => <ProfileContainer />}/>

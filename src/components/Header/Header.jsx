@@ -1,11 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import classes from './Header.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Header = ()=> {
-
+const Header = (props)=> {
+    console.log(props)
     return (
         <header className={classes.header}>
             <div className={classes.l_side}>
@@ -22,8 +23,10 @@ const Header = ()=> {
                 <div className={classes.messages}>
                     <FontAwesomeIcon icon="envelope" />
                 </div>
-                <div className={classes.avatar}>
-                    <p>Taras Bandrivskyy</p>
+                <div className={classes.login_block}>
+                    {props.isAuth ? props.login :
+                    <NavLink to='/login'>Login</NavLink>
+                    }
                 </div>
             </div>
         </header>
