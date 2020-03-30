@@ -32,8 +32,26 @@ export const usersAPI = {
         });
     },
     getUserProfile(userId) {
-        return instance.get(`profile/${userId ? userId : 2}`).then(response => {
+        console.warn('Obsolute method. Please use ProfilAPI method')
+        return profileAPI.getUserProfile(userId);
+    }
+}
+export const profileAPI = {
+    getUserProfile(userId) {
+        return instance.get(`profile/${userId ? userId : 6677}`).then(response => {
             return response.data;
         });
-    }
+    },
+    getStatusProfile(userId) {
+        return instance.get(`profile/status/${userId ? userId : 6677}`).then(response => {
+            return response.data;
+        });
+    },
+    
+    updateStatusProfile(status) {
+        return instance.put(`profile/status`, { status: status }).then(response => {
+            return response.data;
+        });
+    },
+    
 }

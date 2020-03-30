@@ -4,6 +4,7 @@ import classes from './Dialogs.module.css';
 
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
+import TestComponent from './TestComponent';
 
 
 const Dialogs = (props) => {
@@ -30,6 +31,8 @@ const Dialogs = (props) => {
         let area = areaElement.current.value;
         props.updateTextActionCreator(area);
     }
+    
+
 
     return (
         <div className={classes.dialogs}>
@@ -40,6 +43,7 @@ const Dialogs = (props) => {
                 { messageElements }
                 <textarea onChange={updateText} name="" id="" cols="30" rows="10" ref={areaElement}></textarea>
                 <button onClick={sendMessage}>Send</button>
+                <TestComponent/>
             </div>
         </div>
     );

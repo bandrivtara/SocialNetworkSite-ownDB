@@ -8,6 +8,7 @@ import Music from './components/Music/Music';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import {Route} from 'react-router-dom';
 import UsersContainer from './components/Users/UsersContainer';
+import Login from './components/Login/Login';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -27,6 +28,7 @@ function App(props) {
           <Route path='/dialogs' render={() => <DialogsContainer />}/>
           <Route path='/users' render={() => <UsersContainer />}/>
           <Route path='/music' render={() => <Music />}/>
+          <Route path='/login' render={() => <Login />}/>
         </div>
     </div>
   );

@@ -3,16 +3,18 @@ import React from 'react';
 import classes from './ProfileInfo.module.css';
 
 import PhotoBox from './PhotoBox/PhotoBox';
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 const ProfileInfo = (props)=> {
   
     return (
       
       <div className={classes.profile_info}>
-        <PhotoBox profilePhoto={props.profile.photos.small}/>
+        {/* <PhotoBox profilePhoto={props.profile.photos.small}/> */}
         <div className={classes.status}>
           <h2>{props.profile.fullName}</h2>
           <p>{props.profile.aboutMe}</p>
+          <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
           <button className={classes.standart_button}>Following</button>
         </div>
         <div className={classes.statistic}>
