@@ -24,7 +24,7 @@ const Header = (props)=> {
                     <FontAwesomeIcon icon="envelope" />
                 </div>
                 <div className={classes.login_block}>
-                    {props.isAuth ? props.login :
+                    {props.isAuth ? <div>{props.login} <button onClick={props.logout}>Logout</button></div> :
                     <NavLink to='/login'>Login</NavLink>
                     }
                 </div>

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import Users from './Users';
 import { setUsers, unfollow, follow, setCurrentPage, setTotalCount, toggleIsFetching, toggleFollowingProgress, getUsersOnChange, getUsersThunkCreator } from '../../redux/UsersReducer';
-import Preloader from '../common/Preloader';
+import Preloader from '../common/Preloader/Preloader';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
@@ -46,7 +46,7 @@ let mapSateToProps = (state) => {
 
 
 export default compose(
-    withAuthRedirect,
+    // withAuthRedirect,
     connect(mapSateToProps, {
         follow,
         unfollow,

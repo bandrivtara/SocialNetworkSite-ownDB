@@ -1,4 +1,3 @@
-const UPDATE_TEXT = 'UPDATE-TEXT';
 const SEND_MESSAGE = 'SEND-MESSAGE';
 
 
@@ -25,34 +24,24 @@ let initialState = {
 
 const dialogReducer = (state = initialState, action) => {
     
-    if (action.type === UPDATE_TEXT) {
-        return {...state, newMessageText: action.newText};
-
-    } else if (action.type === SEND_MESSAGE) {
-        return {...state, 
-            newMessageText: '',
-            messageData: [...state.messageData, {id: 1, 
-                message: state.newMessageText, 
-                myMessage: true
-            }]
-        };
-    }
-
-
-
-    return state;
-}
-
-export const updateTextActionCreator = (text) => {
-    return {
-        type: UPDATE_TEXT,
-        newText: text,
+    switch (action.type) {
+        case SEND_MESSAGE: {
+            return {...state,
+                messageData: [...state.messageData, {id: 1, 
+                    message: action.message, 
+                    myMessage: true
+                }]
+            };
+        }
+        default :
+            return state;
     }
 }
 
-export const sendMessageActionCreator = () => {
+export const sendMessageActionCreator = (message) => {
     return {
-        type: SEND_MESSAGE
+        type: SEND_MESSAGE,
+        message
     }
 }
 
