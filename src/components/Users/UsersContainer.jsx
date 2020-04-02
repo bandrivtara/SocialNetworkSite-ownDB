@@ -5,6 +5,7 @@ import { setUsers, unfollow, follow, setCurrentPage, setTotalCount, toggleIsFetc
 import Preloader from '../common/Preloader/Preloader';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { getUsers, getPageSize, getCurrentPage, getIsFetching, getFollowingInProgress, getTotalUsersCount } from '../../redux/UsersSelectors';
 
 class UsersAPIComponent extends React.Component {
 
@@ -35,14 +36,24 @@ class UsersAPIComponent extends React.Component {
 
 let mapSateToProps = (state) => {
     return {
-        users: state.users.users,
-        pageSize: state.users.pageSize,
-        totalUsersCount: state.users.totalUsersCount,
-        currentPage: state.users.currentPage,
-        isFetching: state.users.isFetching,
-        followingInProgress: state.users.followingInProgress
+        users: getUsers(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state)
     }
 }
+// let mapSateToProps = (state) => {
+//     return {
+//         users: state.users.users,
+//         pageSize: state.users.pageSize,
+//         totalUsersCount: state.users.totalUsersCount,
+//         currentPage: state.users.currentPage,
+//         isFetching: state.users.isFetching,
+//         followingInProgress: state.users.followingInProgress
+//     }
+// }
 
 
 export default compose(
