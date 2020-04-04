@@ -72,30 +72,19 @@ export const setStatusProfile = (status) => {
     }
 }
 
-export const showUserProfile = (userId) => {
-    return (dispatch) => {
-        usersAPI.getUserProfile(userId).then(response => {
-            dispatch(setUserProfile(response)); 
-        });
-    }
+export const showUserProfile = (userId) => async (dispatch) => {
+    let response = await usersAPI.getUserProfile(userId);
+    dispatch(setUserProfile(response));   
 }
-export const getStatusProfile = (userId) => {
-    return (dispatch) => {
-        profileAPI.getStatusProfile(userId).then(response => {
-            
-            dispatch(setStatusProfile(response)); 
-        });
-    }
+export const getStatusProfile = (userId) => async (dispatch) => {
+    let response = await profileAPI.getStatusProfile(userId);
+    dispatch(setStatusProfile(response)); 
 }
-export const updateStatusProfile = (status) => {
-    return (dispatch) => {
-        profileAPI.updateStatusProfile(status).then(response => {
-            if (response.resultCode === 0){
-                dispatch(setStatusProfile(status));
-            }
-            
-        });
-    }
+export const updateStatusProfile = (status) => async (dispatch) => {
+    let response = await profileAPI.updateStatusProfile(status);
+        if (response.resultCode === 0){
+            dispatch(setStatusProfile(status));
+        }
 }
 
 export default profileReducer;

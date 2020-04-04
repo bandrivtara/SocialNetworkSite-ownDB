@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import classes from './MyPosts.module.css';
@@ -7,7 +7,9 @@ import Post from './Post/Post';
 import {required, maxLengthCreator} from '../../../utilities/validators/validators';
 import { textareaRForm } from '../../common/FormsElements/FormsElements';
 
-const MyPosts = (props)=> {
+const MyPosts = React.memo(props => { 
+  
+  console.log('RENDER')
 
   let state = props.state;
 
@@ -32,11 +34,14 @@ const MyPosts = (props)=> {
         {postElements}
       </div>
     );
-}
+ 
+})
 
 let maxLength10 = maxLengthCreator(10);
 
 const PostsForm = (props) => {
+
+  console.log('render2')
   return(
     <form onSubmit={props.handleSubmit}>
       <Field component={textareaRForm} name='postText' validate={[required, maxLength10]} placeholder='Your post'/>

@@ -10,11 +10,13 @@ import { getUsers, getPageSize, getCurrentPage, getIsFetching, getFollowingInPro
 class UsersAPIComponent extends React.Component {
 
     componentDidMount() {
-        this.props.getUsersThunkCreator(this.props.pageSize, this.props.currentPage);
+        let {pageSize, currentPage} = this.props;
+        this.props.getUsersThunkCreator(pageSize, currentPage);
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.getUsersOnChange(this.props.pageSize, pageNumber);
+        let {pageSize} = this.props;
+        this.props.getUsersOnChange(pageSize, pageNumber);
     }
 
     render() {
@@ -57,7 +59,7 @@ let mapSateToProps = (state) => {
 
 
 export default compose(
-    // withAuthRedirect,
+    withAuthRedirect,
     connect(mapSateToProps, {
         follow,
         unfollow,

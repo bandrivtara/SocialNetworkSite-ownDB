@@ -84,42 +84,34 @@ export const setTotalCount = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount
 export const toggleIsFetching = (isFetching) => ({type: TOOGLE_IS_FETCHING, isFetching});
 export const toggleFollowingProgress = (isFetching) => ({type: TOOGLE_IS_FOLLOWING_PROGRESS, isFetching});
 
-export const getUsersThunkCreator = (pageSize, currentPage) => {
-    return (dispatch) => {
+export const getUsersThunkCreator = (pageSize, currentPage) => async (dispatch) => {
         dispatch(setCurrentPage(currentPage));
         dispatch(toggleIsFetching(true));
-        usersAPI.getUsers(pageSize, currentPage).then(data => {
+        let data = await usersAPI.getUsers(pageSize, currentPage);
             dispatch(toggleIsFetching(false));
             dispatch(setUsers(data.items));
             dispatch(setTotalCount(data.totalCount));
-        });
-}}
-export const getUsersOnChange = (pageSize, pageNumber) => {
-    return (dispatch) => {
+}
+export const getUsersOnChange = (pageSize, pageNumber) => async (dispatch) => {
         dispatch(setCurrentPage(pageNumber));
         dispatch(toggleIsFetching(true));
         dispatch(setUsers([]));
-        usersAPI.getUsers(pageSize, pageNumber).then(data => {
+        let data = await usersAPI.getUsers(pageSize, pageNumber);
         dispatch(setUsers(data.items));
         dispatch(toggleIsFetching(false));
-        });
-}}
+}
 
-export const follow = (userId) => {
-    return (dispatch) => {
-        usersAPI.getUsersFollow(userId).then(data => {
+export const follow = (userId) => async (dispatch) => {
+        let data = await usersAPI.getUsersFollow(userId);
             if (data.resultCode === 0) {
                 dispatch(followSuccess(userId));
             }
-    });
-}}
-export const unfollow = (userId) => {
-    return (dispatch) => {
-        usersAPI.getUsersUnfollow(userId).then(data => {
+}
+export const unfollow = (userId) => async (dispatch) => {
+        let data = await usersAPI.getUsersUnfollow(userId);
             if (data.resultCode === 0) {
                 dispatch(unfollowSuccess(userId));
             }
-    });
-}}
+}
 
 export default UsersReducer;
