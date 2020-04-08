@@ -4,13 +4,13 @@
 
 .formControl.error input,
 .formControl.error textarea {
-    border: 1px solid red;
+    border: 1px solid rgb(201, 91, 91);
 }
 
 .formControl.error span {
-    color: red;
+    color: rgb(201, 91, 91);
 }
 
 .fromSummeryError {
-    color: red;
+    color: rgb(201, 91, 91);
 }

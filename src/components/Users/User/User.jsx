@@ -7,29 +7,25 @@ import photoFile from '../../../assets/images/noUser.png'
 const User = (props) => {
     let u = props.user;
     return (
-        <div>
-            <span>
-                <div className={classes.img}>
-                    <NavLink to={'/profile/' + u.id}>
-                        <img src={u.photos.small != null ? u.photos.small : photoFile} alt="" />
-                    </NavLink>
-                </div>
+        <div className={classes.user_box}>
+            <div className={classes.user_box_info}>
+                <NavLink className={classes.user_box_img} to={'/profile/' + u.id}>
+                    <img src={u.photos.small != null ? u.photos.small : photoFile} alt="" />
+                    <p>view profile</p>
+                </NavLink>
                 <div>
-                    {u.followed
-                        ? <button onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
-                        : <button onClick={() => { props.follow(u.id) }}>Follow</button>}
+                    <div className={classes.user_box_name}>{u.name}</div>
+                    <div className={classes.user_box_status}>{u.status}</div>
                 </div>
-            </span>
-            <span>
-                <span>
-                    <div>{u.name}</div>
-                    <div>{u.status}</div>
-                </span>
-                <span>
-                    <div>{'Ukraine'}</div>
-                    <div>{'Ukraine'}</div>
-                </span>
-            </span>
+            </div>
+            <div>
+                <div className={classes.user_box_followed}>
+                    {u.followed
+                        ? <button className={classes.user_box_followed_true} onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
+                        : <button className={classes.user_box_followed_false} onClick={() => { props.follow(u.id) }}>Follow</button>}
+                </div>
+
+            </div>
         </div>
     )
 }

@@ -1,4 +1,68 @@
-.img img{
+.user_box_img img{
     width: 60px;
+    border-radius: 50%;
+    border: 2px solid #f4f4f4;
+}
+
+.user_box_img p {
+    color: #1fa881;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.user_box_img:hover p {
+    text-decoration: underline;
+}
+
+.user_box_img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.user_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+    background: #fff;
+    padding: 15px;
+}
+
+.user_box_info {
+    display: flex;
+}
+
+.user_box_name {
+    color: #88898a;
+    font-size: 18px;
+    width: 600;
+}
+
+.user_box_status {
+    color: #88898a;
+    font-size: 14px;
+}
+
+.user_box_followed_false {
+    background: #1fa881;
+}
+
+.user_box_followed_true {
+    background: #88898a;
+}
+
+.user_box_followed_false:hover {
+    background: #1b8d6d;
+}
+
+.user_box_followed_true:hover {
+    background: #5e5e5f;
+}
+
+.user_box_followed button {
+    color: #fff;
+    border-radius: 4px;
 }
 

@@ -6,7 +6,6 @@ import classes from './Header.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = (props)=> {
-    console.log(props)
     return (
         <header className={classes.header}>
             <div className={classes.l_side}>

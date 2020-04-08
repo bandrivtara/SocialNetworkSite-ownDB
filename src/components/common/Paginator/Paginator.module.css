@@ -1,3 +1,16 @@
+.paginator {
+    text-align: center;
+}
+
+.pageNumber {
+    padding: 0 6px;
+    cursor: pointer;
+}
+
+.pageNumber:hover {
+    color: #1fa881;
+}
 .selectedPage {
+    color: #1fa881;
     font-weight: 700;
 }

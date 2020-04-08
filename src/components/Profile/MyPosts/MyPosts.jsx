@@ -4,52 +4,48 @@ import { Field, reduxForm } from 'redux-form';
 import classes from './MyPosts.module.css';
 
 import Post from './Post/Post';
-import {required, maxLengthCreator} from '../../../utilities/validators/validators';
+import { required, maxLengthCreator } from '../../../utilities/validators/validators';
 import { textareaRForm } from '../../common/FormsElements/FormsElements';
 
-const MyPosts = React.memo(props => { 
-  
-  console.log('RENDER')
+const MyPosts = React.memo(props => {
 
   let state = props.state;
 
   let onSubmit = (formData) => {
     props.addPost(formData.postText)
-    console.log(formData)
   }
 
   let postElements = state.postData.map((post) => {
-    
+
     return (
-      <Post message={post.message} likeCounts={post.likesCount} id={post.id}/>
+      <Post key={post.id} message={post.message} likeCounts={post.likesCount} id={post.id} />
     )
   })
 
-    return (
-      
-      <div className={classes.my_posts}> 
-        <div className={classes.add_post}>
-          <PostsReduxForm onSubmit={onSubmit}/>
-        </div>
+  return (
+
+    <div className={classes.my_posts}>
+      <PostsReduxForm onSubmit={onSubmit} />
+      <div className={classes.posts_box}>
         {postElements}
       </div>
-    );
- 
+    </div>
+  );
+
 })
 
-let maxLength10 = maxLengthCreator(10);
+let maxLength300 = maxLengthCreator(300);
 
 const PostsForm = (props) => {
 
-  console.log('render2')
-  return(
-    <form onSubmit={props.handleSubmit}>
-      <Field component={textareaRForm} name='postText' validate={[required, maxLength10]} placeholder='Your post'/>
-      <button>Add post</button>
+  return (
+    <form className={classes.add_post} onSubmit={props.handleSubmit}>
+      <Field className={classes.add_post_textarea} component={textareaRForm} name='postText' validate={[maxLength300]} placeholder='Your post' />
+      <button className={classes.standart_button}>Add post</button>
     </form>
   )
 }
 
-const PostsReduxForm = reduxForm({form: 'posts'})(PostsForm);
+const PostsReduxForm = reduxForm({ form: 'posts' })(PostsForm);
 
 export default MyPosts;

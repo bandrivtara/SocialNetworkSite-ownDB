@@ -4,7 +4,6 @@ import classes from './Dialogs.module.css';
 
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import TestComponent from './TestComponent';
 import { Field, reduxForm } from 'redux-form'
 
 
@@ -21,7 +20,6 @@ const Dialogs = (props) => {
     )
     
     const onSubmit = (formData) => {
-        console.log(formData.message)
         props.sendMessage(formData.message);
     }
 
@@ -33,7 +31,6 @@ const Dialogs = (props) => {
             <div className={classes.messages}>
                 { messageElements }
                 <SendMessageReduxForm onSubmit={onSubmit}/>
-                <TestComponent/>
             </div>
         </div>
     );

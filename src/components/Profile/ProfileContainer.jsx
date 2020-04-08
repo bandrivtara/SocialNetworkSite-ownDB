@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Profile from './Profile';
 import {connect} from 'react-redux';
-import { setUserProfile, showUserProfile, getStatusProfile, updateStatusProfile } from '../../redux/ProfileReducer';
+import { setUserProfile, showUserProfile, getStatusProfile, updateStatusProfile, savePhoto } from '../../redux/ProfileReducer';
 import {withRouter} from 'react-router-dom';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import {compose} from 'redux';
 
 class ProfileContainer extends React.Component {
     
-    componentDidMount() {
+    refreshProfile() {
         let userId = this.props.match.params.userId;
         this.props.showUserProfile(userId);
         this.props.getStatusProfile(userId);
@@ -19,6 +19,16 @@ class ProfileContainer extends React.Component {
             }
         }
     }
+
+    componentDidMount() {
+        this.refreshProfile();
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.match.params.userId != prevProps.match.params.userId) {
+            this.refreshProfile();
+        }
+    }
     
     render() {
     
@@ -26,9 +36,12 @@ class ProfileContainer extends React.Component {
             <div>
                 <Profile 
                 {...this.props} 
+                isOwner = {!this.props.match.params.userId}
                 profile={this.props.profile} 
                 status={this.props.status} 
-                updateStatus={this.props.updateStatusProfile}/>
+                updateStatus={this.props.updateStatusProfile}
+                savePhoto={this.props.savePhoto}
+                />
             </div>
         )
     }
@@ -42,7 +55,7 @@ let mapStateToProps = (state) => ({
 });
 
 export default compose(
-    connect(mapStateToProps, {setUserProfile, showUserProfile, getStatusProfile, updateStatusProfile}),
+    connect(mapStateToProps, {setUserProfile, showUserProfile, getStatusProfile, updateStatusProfile, savePhoto}),
     withRouter,
     // withAuthRedirect
 )(ProfileContainer);

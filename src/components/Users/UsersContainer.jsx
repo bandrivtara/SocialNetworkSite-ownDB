@@ -46,17 +46,6 @@ let mapSateToProps = (state) => {
         followingInProgress: getFollowingInProgress(state)
     }
 }
-// let mapSateToProps = (state) => {
-//     return {
-//         users: state.users.users,
-//         pageSize: state.users.pageSize,
-//         totalUsersCount: state.users.totalUsersCount,
-//         currentPage: state.users.currentPage,
-//         isFetching: state.users.isFetching,
-//         followingInProgress: state.users.followingInProgress
-//     }
-// }
-
 
 export default compose(
     withAuthRedirect,

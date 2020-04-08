@@ -5,8 +5,10 @@
 }
 
 .item {
-    display: flex;
-    margin: 15px;
-    align-items: center;
-    justify-content: space-around;
+    width: 30%;
+    margin: 10px 0;
+    background: rgb(19, 158, 130);
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
 }

@@ -11,6 +11,10 @@
     padding: 20px;
 }
 
+.status h2 {
+    margin: 0;
+}
+
 .statistic {
     padding: 20px;
     width: 90%;
@@ -39,4 +43,7 @@
     font-size: 20px;
 }
   
+.status_info {
+    font-size: 14px;
+}
 
