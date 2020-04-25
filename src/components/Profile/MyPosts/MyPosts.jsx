@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import classes from './MyPosts.module.css';
 
 import Post from './Post/Post';
-import { required, maxLengthCreator } from '../../../utilities/validators/validators';
+import { maxLengthCreator } from '../../../utilities/validators/validators';
 import { textareaRForm } from '../../common/FormsElements/FormsElements';
 
 const MyPosts = React.memo(props => {
@@ -12,13 +12,13 @@ const MyPosts = React.memo(props => {
   let state = props.state;
 
   let onSubmit = (formData) => {
-    props.addPost(formData.postText)
+    props.addPost(formData.postText);
   }
 
   let postElements = state.postData.map((post) => {
 
     return (
-      <Post key={post.id} message={post.message} likeCounts={post.likesCount} id={post.id} />
+      <Post key={post.id} message={post.message} likeCounts={post.likesCount} id={post.id} coverImage={post.coverImage}/>
     )
   })
 

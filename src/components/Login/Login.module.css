@@ -1,0 +1,26 @@
+.formBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  height: 300px;
+}
+
+.loginForm {
+  background: rgb(15,193,158);
+  border: 1px rgb(16, 150, 123) solid;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.loginForm input {
+  background: #fff;
+  margin: 6px 0;
+  border-radius: 6px;
+}
+
+.loginForm button {
+  color: #fff;
+  font-weight: 400;
+  font-size: 26px;
+}

@@ -30,6 +30,7 @@ class UsersAPIComponent extends React.Component {
             follow = {this.props.follow}
             unfollow = {this.props.unfollow}
             toggleFollowingProgress = {this.props.toggleFollowingProgress}
+            homePage={this.props.homePage}
             />
             {this.props.isFetching ? <Preloader /> : null}
         </Fragment>

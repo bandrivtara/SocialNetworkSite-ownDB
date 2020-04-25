@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
+import photosReducer from './PhotosReducer'
 import dialogReducer from "./DialogReducer";
 import profileReducer from "./ProfileReducer";
 import navReducer from "./NavReducer";
@@ -13,6 +14,7 @@ let reducers = combineReducers({
     profile: profileReducer,
     dialog: dialogReducer,
     nav: navReducer,
+    photos: photosReducer,
     users: UsersReducer,
     auth: AuthReducer,
     form: formReducer,

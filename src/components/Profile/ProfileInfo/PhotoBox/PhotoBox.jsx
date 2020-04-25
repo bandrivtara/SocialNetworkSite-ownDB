@@ -42,7 +42,8 @@ const PhotoBox = (props) => {
             <div className={classes.profil_photo} style={profilPhotoStyle} >
                 {props.isOwner &&
                     <div className={classes.changePhotoLabel}>
-                        <input id="file-upload" className={classes.changePhotoBtn} type="file" onChange={mainPhotoSelectedOn} />
+                        <input id="file-upload" className={classes.changePhotoBtn} 
+                        accept='.jpg, .png, .jpeg' type="file" onChange={mainPhotoSelectedOn} />
                         <label for="file-upload" >
                             <p>Change photo</p>
                         </label>

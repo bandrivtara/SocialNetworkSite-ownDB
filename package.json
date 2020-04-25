@@ -1,4 +1,5 @@
 {
+  "homepage": "http://bandrivtara.github.io/SocialNetworkSite",
   "name": "less1_game_tic_toc",
   "version": "0.1.0",
   "private": true,
@@ -12,6 +13,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
+    "firebase": "^7.14.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-paginate": "^6.3.2",
@@ -24,6 +26,8 @@
     "reselect": "^4.0.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -43,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }

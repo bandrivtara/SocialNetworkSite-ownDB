@@ -6,7 +6,7 @@ const instance = axios.create({
     headers: {
         'API-KEY':'ec0e312a-1771-46e0-8aa8-a5d71744dc0b'
     }
-})
+}) 
 
 export const usersAPI = {
     getUsers(pageSize, pageNumber) {
@@ -76,3 +76,4 @@ export const authAPI = {
         return instance.delete(`auth/login`);
     },
 }
+

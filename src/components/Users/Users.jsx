@@ -6,6 +6,7 @@ import User from './User/User';
 
 const Users = (props) => {
 
+    
     return (
         <div className={classes.users_box}>
             {props.users.map(user =>

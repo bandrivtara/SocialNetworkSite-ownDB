@@ -20,7 +20,7 @@
 .r_side {
   display: flex;
   align-items: center;
-  width: 400px;
+  width: 500px;
   justify-content: space-between;
 }
 
@@ -36,6 +36,21 @@
 
 .login_block a {
   color: rgb(132,133,133);
+  transition: .3s;
+}
+
+.login_block a:hover {
+  color: rgb(15,193,158);
+}
+
+.login_block img {
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.login_block > div {
+  display: flex;
+  align-items: center;
 }
 
 

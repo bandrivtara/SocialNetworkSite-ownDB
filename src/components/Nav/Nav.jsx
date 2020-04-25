@@ -9,15 +9,15 @@ const Nav = (props)=> {
     return (
         <nav className={classes.sidebar}>
                 <div className={classes.item}>
-                    <NavLink to="/Home" activeClassName={classes.active}>
+                    <NavLink to="/home" activeClassName={classes.active}>
                         <FontAwesomeIcon icon="home" />
                         <p>Home</p>
                     </NavLink>
                 </div>
                 <div className={classes.item}>
                     <NavLink to="/dialogs" activeClassName={classes.active}>
-                        <FontAwesomeIcon icon="envelope" />
-                        <p>Messages</p>
+                        <FontAwesomeIcon icon="envelope" /> 
+                        <p>Messages<br/>(On Progres...)</p>
                     </NavLink>
                 </div>
                 <div className={classes.item}>
@@ -27,9 +27,9 @@ const Nav = (props)=> {
                     </NavLink>
                 </div>
                 <div className={classes.item}>
-                    <NavLink to="/music" activeClassName={classes.active}>
-                        <FontAwesomeIcon icon="music" />
-                        <p>Music</p>
+                    <NavLink to="/photos" activeClassName={classes.active}>
+                        <FontAwesomeIcon icon="camera" />
+                        <p>Photos</p>
                     </NavLink>
                 </div>
                 <div className={classes.item}>

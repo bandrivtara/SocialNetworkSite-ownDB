@@ -6,6 +6,7 @@ import classes from './Header.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = (props)=> {
+
     return (
         <header className={classes.header}>
             <div className={classes.l_side}>
@@ -23,7 +24,7 @@ const Header = (props)=> {
                     <FontAwesomeIcon icon="envelope" />
                 </div>
                 <div className={classes.login_block}>
-                    {props.isAuth ? <div>{props.login} <button onClick={props.logout}>Logout</button></div> :
+                    {props.isAuth ? <div><img src={props.avatar} alt="ava"/><NavLink to='/profile'>{props.login}</NavLink> <button onClick={props.logout}>Logout</button></div> :
                     <NavLink to='/login'>Login</NavLink>
                     }
                 </div>
