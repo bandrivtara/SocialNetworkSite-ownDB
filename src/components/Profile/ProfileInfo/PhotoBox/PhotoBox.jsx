@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import photoFile from '../../../../assets/images/noUser.png'
 import classes from './PhotoBox.module.css';
+import ChangeAvatar from './ChangeAvatar/ChangeAvatar';
 
 const PhotoBox = (props) => {
 
-    const mainPhotoSelectedOn = (e) => {
-        if (e.target.files.length) {
-            props.savePhoto(e.target.files[0])
-        }
+    let [handleModal, setHandleModal] = useState(false);
+
+    const changeAvatar = () => {
+        setHandleModal(true);
     }
 
-    const profilPhotoStyle = {
-        backgroundImage: `url(${props.profilePhoto || photoFile})`, 
+    const closeModal = () => {
+        setHandleModal(false)
     }
 
     return (
         <div className={classes.profil_style}>
+            {handleModal && 
+            <ChangeAvatar closeModal={closeModal} 
+            uploadPicture={props.uploadPicture} 
+            userId={props.userId}/>}
             <ul className={classes.img_box}>
                 <li>
                     <img src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05447_mvffor.jpg" alt="Interior at Nong's" loading="lazy" />
@@ -39,16 +44,12 @@ const PhotoBox = (props) => {
                     <img src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814784/photostream-photos/DSC05517_ni2k0p.jpg" alt="Payam crossing the street on a bike" loading="lazy" />
                 </li>
             </ul>
-            <div className={classes.profil_photo} style={profilPhotoStyle} >
+            <div className={classes.profil_photo} >
+                <img src={props.profilePhoto || photoFile} alt="avatar" />
                 {props.isOwner &&
-                    <div className={classes.changePhotoLabel}>
-                        <input id="file-upload" className={classes.changePhotoBtn} 
-                        accept='.jpg, .png, .jpeg' type="file" onChange={mainPhotoSelectedOn} />
-                        <label for="file-upload" >
-                            <p>Change photo</p>
-                        </label>
-                    </div>
-
+                    <button className={classes.changePhotoLabel} onClick={() => { changeAvatar() }}>
+                        <p>Change photo</p>
+                    </button>
                 }
             </div>
         </div>

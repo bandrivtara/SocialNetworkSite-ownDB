@@ -4,7 +4,7 @@ import * as axios from 'axios';
 const instanceMy = axios.create({
     // baseURL: 'https://my-json-server.typicode.com/bandrivtara/Social-Network-db',
     baseURL: 'http://localhost:3000/',
-}) 
+})  
 
 export const photosAPI = {
     getPhotos(limitOfPhoto) {
@@ -47,4 +47,22 @@ export const authAPI = {
             return response.data;
         })
     },
+}
+
+export const profileJsonAPI = {
+    getUserProfile(userId, logUserId) {
+        return instanceMy.get(`users/${userId ? userId : logUserId}?_embed=profile`).then(response => {
+            return response.data; 
+        });
+    },
+    updateStatusProfile(status, id) {
+        return instanceMy.patch(`users/${id}?_embed=profile`, {"status" : status}).then(response => {
+            return response.data;
+        });
+    },
+    uploadPicture(src, id) {
+        return instanceMy.patch(`users/${id}?_embed=profile`, {"avatar" : src}).then(response => {
+            return response.data;
+        });
+    }
 }

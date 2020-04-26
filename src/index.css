@@ -74,3 +74,16 @@ textarea {
   font-family: 'Baloo Da 2';
 }
 
+.modalWindow {
+  position: fixed;
+  width: 80%;
+  height: 80vh;
+  padding-right: 17px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  border-radius: 6px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+  top: 50%;                 
+  background: #fff;
+}

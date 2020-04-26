@@ -16,7 +16,7 @@ class HeaderContainer extends React.Component {
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
     login: state.auth.login,
-    avatar: state.profile.profile.photos.small,
+    // avatar: state.profile.profile.photos.small,
 })
 
 export default connect(mapStateToProps, {setAuthUserData, logout})(HeaderContainer);

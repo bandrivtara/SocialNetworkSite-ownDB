@@ -39,7 +39,7 @@ export const usersAPI = {
 export const profileAPI = {
     getUserProfile(userId) {
         return instance.get(`profile/${userId ? userId : 6677}`).then(response => {
-            return response.data;
+            return response.data; 
         });
     },
     getStatusProfile(userId) {
