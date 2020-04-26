@@ -8,6 +8,7 @@ import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 const ProfileInfo = (props) => {
 
+  let userId = props.mainInfo.id;
 
   return (
 
@@ -17,7 +18,7 @@ const ProfileInfo = (props) => {
         {props.mainInfo.avatar}
         isOwner={props.isOwner}
         uploadPicture={props.uploadPicture}
-        userId={props.mainInfo.id} />
+        userId={userId} />
       <div className={classes.status}>
         <h2>{props.mainInfo.name}</h2>
         <p>{props.profile.job}</p>
@@ -28,7 +29,8 @@ const ProfileInfo = (props) => {
           updateStatus={props.updateStatus} isOwner={props.isOwner} />
         {props.isOwner
           ? <p className={classes.status_info}>Click on status to change</p>
-          : <button className={classes.standart_button}>Following</button>}
+          : (props.followed ? <button className={classes.button_false} onClick={() => { props.changeFollowed(false, userId) }}>Unfollow</button>
+            : <button className={classes.button_true} onClick={() => { props.changeFollowed(true, userId) }}>Follow</button>)}
       </div>
       <div className={classes.statistic}>
         <p>Posts <span>{props.profile.posts}</span></p>

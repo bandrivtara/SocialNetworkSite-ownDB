@@ -1,4 +1,3 @@
-import { usersAPI } from '../API/API.js';
 import { usersJsonAPI } from '../API/API-JSON';
 
 const CHANGE_FOLLOW = 'CHANGE_FOLLOW';

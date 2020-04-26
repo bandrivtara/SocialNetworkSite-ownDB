@@ -9,16 +9,14 @@ import { textareaRForm } from '../../common/FormsElements/FormsElements';
 
 const MyPosts = React.memo(props => {
 
-  let state = props.state;
-
   let onSubmit = (formData) => {
     props.addPost(formData.postText);
   }
 
-  let postElements = state.postData.map((post) => {
+  let postElements = props.posts.map((post) => {
 
     return (
-      <Post key={post.id} message={post.message} likeCounts={post.likesCount} id={post.id} coverImage={post.coverImage}/>
+      <Post key={post.id} message={post.body} likeCounts={post.likes} id={post.id} coverImage={post.cover}/>
     )
   })
 
@@ -31,7 +29,7 @@ const MyPosts = React.memo(props => {
       </div>
     </div>
   );
-
+ 
 })
 
 let maxLength300 = maxLengthCreator(300);

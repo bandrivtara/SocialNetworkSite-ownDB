@@ -12,7 +12,8 @@ const Profile = (props) => {
     <div>
       <ProfileInfo profile={props.profile} mainInfo={props.mainInfo}
         updateStatus={props.updateStatus} isOwner={props.isOwner}
-        uploadPicture={props.uploadPicture} />
+        uploadPicture={props.uploadPicture} followed={props.followed}
+        changeFollowed={props.changeFollowed}/>
       <MyPostsContainer />
     </div>
 

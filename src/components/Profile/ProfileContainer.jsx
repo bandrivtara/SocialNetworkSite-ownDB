@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Profile from './Profile';
-import {connect} from 'react-redux';
-import { setUserProfile, showUserProfile, updateStatusProfile, uploadPicture } from '../../redux/ProfileReducer';
-import {withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setUserProfile, showUserProfile, updateStatusProfile, uploadPicture, changeFollowed } from '../../redux/ProfileReducer';
+import { withRouter } from 'react-router-dom';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
-import {compose} from 'redux';
+import { compose } from 'redux';
 
 class ProfileContainer extends React.Component {
-    
+
     refreshProfile() {
         let userId = this.props.match.params.userId;
         let logUserId = this.props.logUserId;
@@ -19,8 +19,8 @@ class ProfileContainer extends React.Component {
             }
         }
     }
-    
-    
+
+
     componentDidMount() {
         this.refreshProfile();
     }
@@ -30,18 +30,19 @@ class ProfileContainer extends React.Component {
             this.refreshProfile();
         }
     }
-    
+
     render() {
-        return(
-            
+        return (
             <div>
-                <Profile 
-                {...this.props} 
-                isOwner = {!this.props.match.params.userId}
-                profile={this.props.profile} 
-                mainInfo={this.props.mainInfo} 
-                updateStatus={this.props.updateStatusProfile}
-                uploadPicture={this.props.uploadPicture}
+                <Profile
+                    {...this.props}
+                    isOwner={!this.props.match.params.userId}
+                    profile={this.props.profile}
+                    mainInfo={this.props.mainInfo}
+                    updateStatus={this.props.updateStatusProfile}
+                    uploadPicture={this.props.uploadPicture}
+                    followed={this.props.followed}
+                    changeFollowed={this.props.changeFollowed}
                 />
             </div>
         )
@@ -51,12 +52,13 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
     profile: state.profile.profile,
-    isAuth: state.auth.isAuth,
     mainInfo: state.profile.mainInfo,
-    logUserId: state.auth.userId
+    isAuth: state.auth.isAuth,
+    logUserId: state.auth.userId,
+    followed: state.profile.followed
 });
 export default compose(
-    connect(mapStateToProps, {setUserProfile, showUserProfile, updateStatusProfile, uploadPicture}),
+    connect(mapStateToProps, { setUserProfile, showUserProfile, updateStatusProfile, uploadPicture, changeFollowed }),
     withRouter,
     // withAuthRedirect
-    )(ProfileContainer);
+)(ProfileContainer);

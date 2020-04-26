@@ -6,16 +6,16 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_MAIN_INFO_PROFILE = 'SET_MAIN_INFO_PROFILE';
 const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
 const SET_NEW_STATUS = 'SET_NEW_STATUS';
-
+const SET_USER_POSTS = 'SET_USER_POSTS';
+const SET_FOLLOWED = 'SET_FOLLOWED';
 
 let initialState = {
     mainInfo: {},
     profile: {},
-    postData: [
-        { id: 1, coverImage: "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814784/photostream-photos/DSC05581_ceocwv.jpg", message: "What better way to showcase your business then by sharing a culture post? A culture post is an image or article that highlights what your business is all about. It could be a behind-the-scenes image of your employees doing something quirky or an article about how your business does something a certain way.", likesCount: 12 },
-        { id: 2, coverImage: "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814784/photostream-photos/DSC05515_d2gzut.jpg", message: "Content curation is simply sharing the content of others in your niche. Sometimes the things you want to share with your audience have already been written. So rather than spending the time crafting an in-depth post, you can quickly share one that’s already been written (by giving them credit of course.)", likesCount: 15 },
-        { id: 3, coverImage: "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814784/photostream-photos/DSC05624_f5b2ud.jpg", message: "Encouraging people to participate in a social media contest that is related to your brand will boost engagement with those who are already followers and can help you increase subscribers by requiring those that don’t follow or like your page yet to do so in order to participate.", likesCount: 1 },
-    ]
+    posts: {
+        userPosts: []
+    },
+    followed: {}
 };
 
 
@@ -37,12 +37,18 @@ const profileReducer = (state = initialState, action) => {
         }
         case SET_USER_PROFILE: {
             return (
-                { ...state, profile: action.profile.profile[0] }
+                { ...state, profile: action.profile.profile[0], 
+                    followed: action.profile.followed }
             )
         }
         case SET_MAIN_INFO_PROFILE: {
             return (
                 { ...state, mainInfo: action.profile }
+            )
+        }
+        case SET_USER_POSTS: {
+            return (
+                { ...state, posts: action.posts.posts[0] }
             )
         }
         case SET_NEW_STATUS: {
@@ -55,7 +61,12 @@ const profileReducer = (state = initialState, action) => {
                 { ...state, mainInfo: { ...state.mainInfo, avatar: action.src } }
             )
         }
-
+        case SET_FOLLOWED: {
+            return (
+                { ...state, followed: action.status }
+            )
+        }
+ 
         default:
             return state;
     }
@@ -82,6 +93,13 @@ export const setMainInfoProfile = (profile) => {
     }
 }
 
+export const setUserPosts = (posts) => {
+    return {
+        type: SET_USER_POSTS,
+        posts
+    }
+}
+
 export const setNewStatus = (status) => {
     return {
         type: SET_NEW_STATUS,
@@ -95,11 +113,19 @@ export const savePhotoSuccess = (src) => {
         src
     }
 }
+export const setFollowed = (status) => {
+    return {
+        type: SET_FOLLOWED,
+        status
+    }
+}
 
 export const showUserProfile = (userId, logUserId) => async (dispatch) => {
     let response = await profileJsonAPI.getUserProfile(userId, logUserId);
+    let postsData = await profileJsonAPI.getUserPosts(userId, logUserId);
     dispatch(setUserProfile(response));
     dispatch(setMainInfoProfile(response));
+    dispatch(setUserPosts(postsData));
 }
 
 export const updateStatusProfile = (status, id) => async (dispatch) => {
@@ -110,6 +136,11 @@ export const updateStatusProfile = (status, id) => async (dispatch) => {
 export const uploadPicture = (src, id) => async (dispatch) => {
     let response = await profileJsonAPI.uploadPicture(src, id);
     dispatch(savePhotoSuccess(src));
+}
+
+export const changeFollowed = (status, id ) => async (dispatch) => {
+    let response = await profileJsonAPI.changeFollowed(status, id);
+    dispatch(setFollowed(status));
 }
 
 export default profileReducer;

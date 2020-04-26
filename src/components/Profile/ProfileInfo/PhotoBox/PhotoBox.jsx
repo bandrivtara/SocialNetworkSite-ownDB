@@ -48,7 +48,7 @@ const PhotoBox = (props) => {
                 <img src={props.profilePhoto || photoFile} alt="avatar" />
                 {props.isOwner &&
                     <button className={classes.changePhotoLabel} onClick={() => { changeAvatar() }}>
-                        <p>Change photo</p>
+                        <p>Change avatar</p>
                     </button>
                 }
             </div>

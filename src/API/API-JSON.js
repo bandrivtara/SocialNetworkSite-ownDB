@@ -64,5 +64,15 @@ export const profileJsonAPI = {
         return instanceMy.patch(`users/${id}?_embed=profile`, {"avatar" : src}).then(response => {
             return response.data;
         });
+    },
+    getUserPosts(userId, logUserId) {
+        return instanceMy.get(`users/${userId ? userId : logUserId}?_embed=posts`).then(response => {
+            return response.data; 
+        });
+    },
+    changeFollowed(status, id) {
+        return instanceMy.patch(`users/${id}`, {"followed" : status}).then(response => {
+            return response.data;
+        });
     }
 }
