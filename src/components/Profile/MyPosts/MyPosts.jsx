@@ -16,20 +16,23 @@ const MyPosts = React.memo(props => {
   let postElements = props.posts.map((post) => {
 
     return (
-      <Post key={post.id} message={post.body} likeCounts={post.likes} id={post.id} coverImage={post.cover}/>
+      <Post key={post.id} message={post.body}
+        likeCounts={post.likes} id={post.id} title={post.title}
+        coverImage={post.cover} openModalWindow={props.openModalWindow}
+        state={props.state} />
     )
   })
 
   return (
 
     <div className={classes.my_posts}>
-      <PostsReduxForm onSubmit={onSubmit} />
+      {props.isOwner && <PostsReduxForm onSubmit={onSubmit} />}
       <div className={classes.posts_box}>
         {postElements}
       </div>
     </div>
   );
- 
+
 })
 
 let maxLength300 = maxLengthCreator(300);

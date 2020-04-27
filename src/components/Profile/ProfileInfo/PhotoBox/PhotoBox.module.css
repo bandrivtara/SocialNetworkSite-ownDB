@@ -3,6 +3,11 @@
   flex-wrap: wrap;
 }
 
+.img_box img {
+  width: 100%;
+  height: auto;
+}
+
 .img_box li {
   height: 32vh;
   flex-grow: 1;

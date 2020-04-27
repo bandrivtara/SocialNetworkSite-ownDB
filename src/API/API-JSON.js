@@ -74,5 +74,10 @@ export const profileJsonAPI = {
         return instanceMy.patch(`users/${id}`, {"followed" : status}).then(response => {
             return response.data;
         });
-    }
+    },
+    getFollowers() {
+        return instanceMy.get(`users?followed=true`).then(response => {
+            return response.data;
+        });
+    },
 }

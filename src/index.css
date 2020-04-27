@@ -77,7 +77,7 @@ textarea {
 .modalWindow {
   position: fixed;
   width: 80%;
-  height: 80vh;
+  height: 500px;
   padding-right: 17px;
   box-shadow: 0 5px 15px rgba(0,0,0,.5);
   border-radius: 6px;
@@ -86,4 +86,5 @@ textarea {
   z-index: 1050;
   top: 50%;                 
   background: #fff;
+  overflow-y: scroll;
 }

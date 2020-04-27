@@ -1,0 +1,28 @@
+.postBox {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.photo {
+    width: 60%;
+}
+
+.photo img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.body {
+    width: 38%;
+    color: black;
+}
+
+.body h2 {
+    color: rgb(15,193,158);
+}
+
+.close_btn {
+    float: right;
+}

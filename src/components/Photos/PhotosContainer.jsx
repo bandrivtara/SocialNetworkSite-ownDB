@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import { connect } from 'react-redux';
 import Photos from './Photos';
 import { showPhoto } from '../../redux/PhotosReducer';
+import Preloader from '../common/Preloader/Preloader';
 
 class PhotosAPIComponent extends React.Component {
 
@@ -21,7 +22,7 @@ class PhotosAPIComponent extends React.Component {
 
   setAlbum(elem) {
     if (elem === this.state.album) {
-      this.setState ({
+      this.setState({
         album: null
       })
     } else {
@@ -34,9 +35,12 @@ class PhotosAPIComponent extends React.Component {
 
   render() {
     return (
-      <Photos state={this.props.photos}
-        setAlbum={this.setAlbum}
-        album={this.state.album} />
+      <Fragment>
+        {this.props.isFetching ? <Preloader /> :
+          <Photos state={this.props.photos}
+            setAlbum={this.setAlbum}
+            album={this.state.album} />}
+      </Fragment>
     )
   }
 }
@@ -45,7 +49,8 @@ class PhotosAPIComponent extends React.Component {
 let mapStateToProps = (state) => {
 
   return {
-    photos: state.photos
+    photos: state.photos,
+    isFetching: state.photos.isFetching
   }
 }
 

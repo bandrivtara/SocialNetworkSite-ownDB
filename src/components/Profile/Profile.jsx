@@ -13,8 +13,11 @@ const Profile = (props) => {
       <ProfileInfo profile={props.profile} mainInfo={props.mainInfo}
         updateStatus={props.updateStatus} isOwner={props.isOwner}
         uploadPicture={props.uploadPicture} followed={props.followed}
-        changeFollowed={props.changeFollowed}/>
-      <MyPostsContainer />
+        changeFollowed={props.changeFollowed} posts={props.posts}
+        followers={props.followers} openModalWindow={props.openModalWindow}
+        modalWindow={props.state.modalWindow}/>
+      <MyPostsContainer openModalWindow={props.openModalWindow}
+        state={props.state} isOwner={props.isOwner}/>/>
     </div>
 
   );

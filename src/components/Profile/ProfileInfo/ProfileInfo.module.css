@@ -9,6 +9,13 @@
     width: 90%;
     background-color: #fff;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job_info {
+    text-align: right;
 }
 
 .status h2 {
@@ -22,11 +29,10 @@
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    font-size: 18px;
 }
  
-.statistic p {
-    margin: 0 10px;
+.statistic button {
+    font-size: 20px;
 }
 
 .statistic span {

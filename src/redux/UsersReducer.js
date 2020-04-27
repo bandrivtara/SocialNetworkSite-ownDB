@@ -94,7 +94,6 @@ export const follow = (userId) => async (dispatch) => {
 export const unfollow = (userId) => async (dispatch) => {
     let data = await usersJsonAPI.getUsersUnfollow(userId);
     dispatch(changeFollowSuccess(data.followed, data.id));
-
 }
 
 export default UsersReducer;

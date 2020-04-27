@@ -9,7 +9,8 @@ class MyPostsContainer extends React.Component {
 
   render() {
     return (
-      <MyPosts posts={this.props.posts} />
+      <MyPosts posts={this.props.posts} openModalWindow={this.props.openModalWindow}
+      state={this.props.state} isOwner={this.props.isOwner} addPost={this.props.addPost}/>
     )
   }
 }
