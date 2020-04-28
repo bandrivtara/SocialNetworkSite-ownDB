@@ -1,11 +1,16 @@
 import React from 'react';
-import UsersContainer from '../Users/UsersContainer';
+import PhotosBarContainer from './PhotosBar/PhotosBarContainer';
+import PostsBarContainer from './PostsBar/PostsBarContainer';
+import UsersBar from './UsersBar/UsersBar';
+
+import classes from './Home.module.css';
 
 const Home = (props) => {
     return (
-        <div>
-            {/* <UsersContainer homePage={true}/> */}
-            Hello
+        <div className={classes.home_container}>
+            <PhotosBarContainer photos={props.photos}/>
+            <PostsBarContainer />
+            <UsersBar />
         </div>
     )
 }

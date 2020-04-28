@@ -6,6 +6,7 @@ import profileReducer from "./ProfileReducer";
 import navReducer from "./NavReducer";
 import UsersReducer from './UsersReducer';
 import AuthReducer from './AuthReducer';
+import HomeReducer from './HomeReducer';
 import AppReducer from './AppReducer';
 import thunkMiddleware from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form'
@@ -16,6 +17,7 @@ let reducers = combineReducers({
     nav: navReducer,
     photos: photosReducer,
     users: UsersReducer,
+    home: HomeReducer,
     auth: AuthReducer,
     form: formReducer,
     app: AppReducer
