@@ -18,7 +18,7 @@ const PhotosBar = (props) => {
                 <NavLink to='/photos/'>Trending Photos</NavLink>
             </div>
             <div className={classesHome.box}>
-                {getPhoto()}
+                {getPhoto()} 
             </div>
             <div className={classesHome.box}>
                 <button onClick={()=>{props.getMore()}}>More Photos</button>

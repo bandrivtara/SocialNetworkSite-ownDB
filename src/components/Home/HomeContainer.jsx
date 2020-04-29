@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import Home from './Home';
 import { showPhoto } from '../../redux/PhotosReducer';
+import { getUnfollowedUsers, follow } from '../../redux/UsersReducer';
+
 
 
 class HomeContainer extends React.Component {
@@ -10,6 +12,7 @@ class HomeContainer extends React.Component {
     getProfile() {
         let logUserId = this.props.logUserId;
         this.props.showPhoto();
+        this.props.getUnfollowedUsers();
     }
 
     componentDidMount() {
@@ -19,7 +22,10 @@ class HomeContainer extends React.Component {
     render() {
         return (
             <div>
-                <Home photos={this.props.photos} />
+                <Home photos={this.props.photos} 
+                unfollowedUsers={this.props.unfollowedUsers}
+                follow={this.props.follow} 
+                getUnfollowedUsers={this.props.getUnfollowedUsers}/>
             </div>
         )
     }
@@ -29,6 +35,7 @@ class HomeContainer extends React.Component {
 let mapStateToProps = (state) => ({
     logUserId: state.auth.userId,
     photos: state.photos,
+    unfollowedUsers: state.users.users
 })
 
-export default connect(mapStateToProps, { showPhoto })(HomeContainer);
+export default connect(mapStateToProps, { showPhoto, getUnfollowedUsers, follow })(HomeContainer);

@@ -1,5 +1,46 @@
 .users_container {
-    width: 18%;
-    border: 1px solid black;
+    width: 24%;
     height: 30vh;
 }
+
+.users_box {
+    background: #fff;
+    box-shadow: 0 5px 25px 0 rgba(123,123,123,.15);
+    border:1px solid #e5e5e5;
+    margin-bottom: 20px;
+}
+
+.user_box {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user_box  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgb(15,193,158);
+    margin-right: 10px;
+}
+
+.user_box button {
+    border: 1px solid #cccbcb;
+    color: #9c9c9c;
+}
+
+.user_box_l {
+    display: flex;
+}
+
+.user_info p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.user_info h3 {
+    margin: 0;
+    font-size: 10px;
+}
+

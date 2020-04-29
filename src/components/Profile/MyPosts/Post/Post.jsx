@@ -21,7 +21,7 @@ const Post = (props) => {
     }
 
     return (
-        <div onClick={() => { openPost() }}
+        <div  onClick={() => { openPost() }}
             className={classes.item} style={profilPhotoStyle}>
             <span className={classes.item_likes}><FontAwesomeIcon icon="heart" /> {props.likeCounts}</span>
             <div className={classes.text_container}>
@@ -30,7 +30,7 @@ const Post = (props) => {
             {props.state.modalWindow === "showPost" && props.state.activePost === props.id &&
             <PostWindow message={props.message}
             photo={props.coverImage} title={props.title}
-            closeModal={closeModal}/>}
+            closeModal={closeModal} />}
         </div>
     );
 }

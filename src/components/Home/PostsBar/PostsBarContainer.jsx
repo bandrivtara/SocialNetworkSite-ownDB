@@ -12,9 +12,11 @@ class PostsBarContainer extends React.Component {
         this.state = {
             posts: [],
             page: 1,
-            firstLoad: true
+            firstLoad: true,
+            handleWindow: false
         }
         this.fetchPosts = this.fetchPosts.bind(this);
+        this.openPostModalWindow = this.openPostModalWindow.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -43,11 +45,27 @@ class PostsBarContainer extends React.Component {
         }, 1500)
     }
 
+    openPostModalWindow(status) {
+        if (status) {
+            this.setState({
+                handleWindow: status
+            });
+        } else {
+            this.setState({
+                handleWindow: false
+            });
+        }
+    }
+
 
     render() {
         console.log(this.state.page)
         return (
-            <PostsBar posts={this.state.posts} fetchPosts={this.fetchPosts} />
+            <PostsBar
+                posts={this.state.posts}
+                fetchPosts={this.fetchPosts}
+                openPostModalWindow={this.openPostModalWindow} 
+                handleWindow={this.state.handleWindow}/>
         )
     }
 }

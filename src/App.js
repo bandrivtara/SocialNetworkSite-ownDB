@@ -13,7 +13,7 @@ import Login from './components/Login/Login';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers, faMusic, faHeart, faCamera } from '@fortawesome/free-solid-svg-icons';
+import { faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers, faMusic, faHeart, faCamera, faComments, faPlus } from '@fortawesome/free-solid-svg-icons';
 import HeaderContainer from './components/Header/HeaderContainer';
 import { initializeAPP } from './redux/AppReducer';
 import Preloader from './components/common/Preloader/Preloader';
@@ -25,7 +25,7 @@ import HomeContainer from './components/Home/HomeContainer';
 
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
 
-library.add(fab, faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers, faMusic, faHeart, faCamera);
+library.add(fab, faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers, faMusic, faHeart, faCamera, faComments, faPlus);
 
 class App extends React.Component {
 

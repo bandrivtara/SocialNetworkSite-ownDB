@@ -18,6 +18,11 @@ export const usersJsonAPI = {
             return response.data;
         })
     },
+    getUnfollowedUsers() {
+        return instanceMy.get(`users?followed=false`).then(response => {
+            return response.data;
+        })
+    },
     getUsersUnfollow(id) {
         return instanceMy.patch(`users/${id}`, { "followed": false }).then(response => {
             return response.data;
@@ -83,7 +88,19 @@ export const profileJsonAPI = {
 }
 export const postsJsonAPI = {
     getGlobalPosts(page) {
-        return instanceMy.get(`global_posts?_page=${page}`).then(response => {
+        return instanceMy.get(`global_posts?_page=${page}&_limit=5`).then(response => {
+            return response.data;
+        });
+    }
+}
+export const dialogsJsonAPI = {
+    getAllDialogs() {
+        return instanceMy.get(`dialogs`).then(response => {
+            return response.data;
+        });
+    },
+    getUsers() {
+        return instanceMy.get(`users`).then(response => {
             return response.data;
         });
     }

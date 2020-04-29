@@ -1,36 +1,68 @@
 .dialogs {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-}
-
-.dialogItems {
-    padding: 10px;
-}
-
-.messages {
-    padding: 10px;
-}
-
-.dialog {
-    padding: 10px;
     display: flex;
-    text-align: center;
+    background: #fff;
+    box-shadow: 0 5px 25px 0 rgba(123,123,123,.15);
+    border: 1px solid #e5e5e5;
+    margin: 20px;
+    height: 98vh;
 }
 
-.dialog img {
-    width: 60px;
-    border-radius: 60px;
+.dialogs_container {
+    width: 30%;
+    border-right: 1px solid #e5e5e5;
 }
 
-.dialog.active {
-    color: red;
+.dialogs_container > h3 {
+    font-size: 24px;
+    margin: 0;
+    padding: 10px 38px;
+    border-bottom: 1px solid #e5e5e5;
 }
 
-.lSide {
-    color: red;
+.messages_container {
+    width: 70%;
 }
 
-.rSide {
-    color: blue;
+.conversant {
+    height: 8%;
+    padding: 20px;
+    border-bottom: 1px solid #e5e5e5;
 }
 
+.messages_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 75%;
+    overflow-y: scroll; 
+}
+
+.send_form {
+    border-top: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form_box {
+    height: 10%;
+}
+
+.send_form textarea {
+    width: 85%;
+    height: 10vh;
+    resize: none;
+    border: none;
+    font-size: 20px;
+    border-right: 1px solid #e5e5e5;
+}
+
+.send_form button {
+    width: 15%;
+    height: 100%;
+    font-size: 20px;
+}
+
+.message {
+    padding: 10px 20px;
+}

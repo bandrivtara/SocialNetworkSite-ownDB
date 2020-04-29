@@ -1,5 +1,47 @@
 .posts_container {
-    width: 60%;
-    height: 20vh;
-    border: 1px solid black;
+    width: 50%;
+}
+
+.post_box {
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 5px 25px 0 rgba(123,123,123,.15);
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.post_box img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.name_box {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.name_box img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgb(15,193,158);
+}
+
+.name_box > div {
+    margin: 0 10px;
+}
+
+.data {
+    font-size: 12px;
+}
+
+.panel_box {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.panel_box p:first-child {
+    color: rgb(219, 69, 69);
 }

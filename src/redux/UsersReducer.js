@@ -6,6 +6,7 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 const TOOGLE_IS_FETCHING = 'TOOGLE_IS_FETCHING';
 const TOOGLE_IS_FOLLOWING_PROGRESS = 'TOOGLE_IS_FOLLOWING_PROGRESS';
+const SET_UNFOLLOWED_USERS = 'SET_UNFOLLOWED_USERS';
 
 
 let initialState = {
@@ -35,13 +36,14 @@ const UsersReducer = (state = initialState, action) => {
         case SET_USERS: {
             return { ...state, users: [...action.users] }
         }
-
+        case SET_UNFOLLOWED_USERS: {
+            return { ...state, users: [...action.users] }
+        }
         case SET_CURRENT_PAGE: {
             return {
                 ...state, currentPage: action.currentPage
             }
         }
-
         case SET_TOTAL_COUNT: {
             return {
                 ...state, totalUsersCount: action.totalCount
@@ -65,6 +67,7 @@ const UsersReducer = (state = initialState, action) => {
 
 export const changeFollowSuccess = (followed, id) => ({ type: CHANGE_FOLLOW, followed, id });
 export const setUsers = (users) => ({ type: SET_USERS, users });
+export const setUnfollowedUsers = (users) => ({ type: SET_UNFOLLOWED_USERS, users });
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
 export const setTotalCount = (totalCount) => ({ type: SET_TOTAL_COUNT, totalCount });
 export const toggleIsFetching = (isFetching) => ({ type: TOOGLE_IS_FETCHING, isFetching });
@@ -91,9 +94,17 @@ export const follow = (userId) => async (dispatch) => {
     let data = await usersJsonAPI.getUsersFollow(userId);
     dispatch(changeFollowSuccess(data.followed, data.id));
 }
+
 export const unfollow = (userId) => async (dispatch) => {
     let data = await usersJsonAPI.getUsersUnfollow(userId);
     dispatch(changeFollowSuccess(data.followed, data.id));
 }
+
+export const getUnfollowedUsers = () => async (dispatch) => {
+    let data = await usersJsonAPI.getUnfollowedUsers();
+    dispatch(setUnfollowedUsers(data));
+}
+
+
 
 export default UsersReducer;
