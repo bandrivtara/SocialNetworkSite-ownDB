@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/SocialNetworkSite/static/css/main.f2910b0d.chunk.css",
+    "main.js": "/SocialNetworkSite/static/js/main.c02751ea.chunk.js",
+    "main.js.map": "/SocialNetworkSite/static/js/main.c02751ea.chunk.js.map",
+    "runtime-main.js": "/SocialNetworkSite/static/js/runtime-main.fe58fd38.js",
+    "runtime-main.js.map": "/SocialNetworkSite/static/js/runtime-main.fe58fd38.js.map",
+    "static/js/2.5449160e.chunk.js": "/SocialNetworkSite/static/js/2.5449160e.chunk.js",
+    "static/js/2.5449160e.chunk.js.map": "/SocialNetworkSite/static/js/2.5449160e.chunk.js.map",
+    "static/css/3.b3d03572.chunk.css": "/SocialNetworkSite/static/css/3.b3d03572.chunk.css",
+    "static/js/3.38cfeaaf.chunk.js": "/SocialNetworkSite/static/js/3.38cfeaaf.chunk.js",
+    "static/js/3.38cfeaaf.chunk.js.map": "/SocialNetworkSite/static/js/3.38cfeaaf.chunk.js.map",
+    "index.html": "/SocialNetworkSite/index.html",
+    "precache-manifest.3b6cc06aa782561d9bef29e85143be9a.js": "/SocialNetworkSite/precache-manifest.3b6cc06aa782561d9bef29e85143be9a.js",
+    "service-worker.js": "/SocialNetworkSite/service-worker.js",
+    "static/css/3.b3d03572.chunk.css.map": "/SocialNetworkSite/static/css/3.b3d03572.chunk.css.map",
+    "static/css/main.f2910b0d.chunk.css.map": "/SocialNetworkSite/static/css/main.f2910b0d.chunk.css.map",
+    "static/js/2.5449160e.chunk.js.LICENSE.txt": "/SocialNetworkSite/static/js/2.5449160e.chunk.js.LICENSE.txt",
+    "static/js/3.38cfeaaf.chunk.js.LICENSE.txt": "/SocialNetworkSite/static/js/3.38cfeaaf.chunk.js.LICENSE.txt",
+    "static/media/noUser.png": "/SocialNetworkSite/static/media/noUser.efcd42d6.png",
+    "static/media/Login.module.css": "/SocialNetworkSite/static/media/old-photos-in-the-wooden-box-5842.e73ca6ae.jpg",
+    "static/media/preloader.svg": "/SocialNetworkSite/static/media/preloader.92e274c7.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fe58fd38.js",
+    "static/js/2.5449160e.chunk.js",
+    "static/css/main.f2910b0d.chunk.css",
+    "static/js/main.c02751ea.chunk.js"
+  ]
+}
