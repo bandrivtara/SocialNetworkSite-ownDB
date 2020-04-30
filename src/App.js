@@ -44,7 +44,7 @@ class App extends React.Component {
           <HeaderContainer />
           <Nav />
           <div className="app-wrapper-content">
-            <Route path='/' render={() => <HomeContainer />} />
+            <Route path='/home' render={() => <HomeContainer />} />
             <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
             <Route path='/dialogs' render={() => <DialogsContainer />} />
             <Suspense fallback={<div>Loading...</div>}><Route path='/users' render={() => <UsersContainer />} /></Suspense>
