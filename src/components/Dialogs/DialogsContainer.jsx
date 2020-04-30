@@ -13,51 +13,60 @@ class DialogsContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            dialogs: null,
-            conversants: null
+            dialogs: [],
+            conversants: [],
+            activeDialog: 1
         }
+        this.setDialog = this.setDialog.bind(this)
     }
 
+    setDialog(conversantId) {
+        this.setState({
+            activeDialog: conversantId
+        })
+    }
+    
     refreshDialogs() {
         this.props.getAllDialogs();
         this.props.getUsers();
     }
-
+    
     setConversants() {
-        
         let activeUserDialogs = this.props.dialogs.map(elem => (elem.conversantId))
-
         function filterByUsers(item) {
-            for (let i=0; i<activeUserDialogs.length; i++) {
-                if (item.id === activeUserDialogs[i]) {
-                    return true
-                }
+            for (let i = 0; i < activeUserDialogs.length; i++) {
+                if (item.id === activeUserDialogs[i]) { return true }
             }
         }
-        
         this.setState({
-            conversants: this.props.users.filter(filterByUsers)
+            conversants: this.props.users.filter(filterByUsers),
+            activeDialog: activeUserDialogs[0]
         })
     }
-
+    
     componentDidUpdate(prevProps) {
         if (this.props !== prevProps) {
             this.setConversants()
         }
     }
-
+    
     componentDidMount() {
         this.refreshDialogs();
     }
-
+    
     render() {
+        console.log(this.state.activeDialog)
         return (
-            <Dialogs conversants={this.state.conversants} />
-        )
+            <Dialogs 
+            conversants={this.state.conversants} 
+            setDialog={this.setDialog}
+            activeDialog={this.state.activeDialog}
+            dialogs={this.props.dialogs}/>
+            )
+        }
     }
-}
-
-
+    
+    
 let mapStateToProps = (state) => {
 
     return {

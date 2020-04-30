@@ -1,37 +1,47 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import classes from './Dialogs.module.css';
 
 
 import { Field, reduxForm } from 'redux-form'
+import Messages from './Messages/Messages';
 
 
 const Dialogs = (props) => {
 
-    let state = props.dialogs;
-
-    const onSubmit = (formData) => {
-        props.sendMessage(formData.message);
-    }
 
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogs_container}>
                 <h3>Messages</h3>
-                <div className={classes.search_dialog}></div>
-                <div className={classes.dialogs_box}>
-
+                <div className={classes.dialogs_list}>
+                    <div className={classes.search_dialog}></div>
+                    <div className={classes.dialogs_box}>
+                        {props.conversants.map(elem => {
+                            return (
+                                <div key={elem.id} 
+                                className={`${classes.dialog} + " " + ${elem.id === props.activeDialog && classes.active_dialog}`} 
+                                onClick={() => { props.setDialog(elem.id) }}>
+                                    <img src={elem.avatar} alt="ava" />
+                                    <h3>{elem.name} {elem.last_name}</h3>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
             <div className={classes.messages_container}>
-                <div className={classes.conversant}>
-
-                </div>
+                {props.conversants.filter(elem => elem.id === props.activeDialog).map(elem => (
+                    <div className={classes.conversant}>
+                        <img src={elem.avatar} alt="ava" />
+                        <h3>{elem.name} {elem.last_name}</h3>
+                    </div>
+                ))}
                 <div className={classes.messages_box}>
-                    {/* {messageElements} */}
+                    <Messages dialogs={props.dialogs} activeDialog={props.activeDialog} />
                 </div>
                 <div className={classes.form_box}>
-                    <SendMessageReduxForm onSubmit={onSubmit} />
+                    {/* <SendMessageReduxForm onSubmit={onSubmit} /> */}
                 </div>
             </div>
         </div>

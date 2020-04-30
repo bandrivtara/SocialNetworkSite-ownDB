@@ -17,7 +17,7 @@ const Nav = (props)=> {
                 <div className={classes.item}>
                     <NavLink to="/dialogs" activeClassName={classes.active}>
                         <FontAwesomeIcon icon="envelope" /> 
-                        <p>Messages<br/>(On Progres...)</p>
+                        <p>Messages</p>
                     </NavLink>
                 </div>
                 <div className={classes.item}>
