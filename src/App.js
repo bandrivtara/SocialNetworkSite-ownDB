@@ -34,17 +34,17 @@ class App extends React.Component {
   }
 
   render() {
-    // if (!this.props.initialized) {
+    if (!this.props.initialized) {
 
-    //   return <div className="preloader_center"><Preloader /></div>
-    // } else {
+      return <div className="preloader_center"><Preloader /></div>
+    } else {
       return (
 
         <div className="app-wrapper">
           <HeaderContainer />
           <Nav />
           <div className="app-wrapper-content">
-            <Route path='/home' render={() => <HomeContainer />} />
+            <Route path='/' render={() => <HomeContainer />} />
             <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
             <Route path='/dialogs' render={() => <DialogsContainer />} />
             <Suspense fallback={<div>Loading...</div>}><Route path='/users' render={() => <UsersContainer />} /></Suspense>
@@ -53,7 +53,7 @@ class App extends React.Component {
           </div>
         </div>
       );
-    // }
+    }
 
   }
 }

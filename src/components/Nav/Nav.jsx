@@ -9,7 +9,7 @@ const Nav = (props)=> {
     return (
         <nav className={classes.sidebar}>
                 <div className={classes.item}>
-                    <NavLink to="/home" activeClassName={classes.active}>
+                    <NavLink to="/" activeClassName={classes.active}>
                         <FontAwesomeIcon icon="home" />
                         <p>Home</p>
                     </NavLink>
