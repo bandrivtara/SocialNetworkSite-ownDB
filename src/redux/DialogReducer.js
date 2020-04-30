@@ -1,6 +1,6 @@
 import { dialogsJsonAPI } from '../API/API-JSON'
 
-const SEND_MESSAGE = 'SEND-MESSAGE';
+const SET_NEW_DIALOGS = 'SET_NEW_DIALOGS';
 const SET_DIALOGS = 'SET_DIALOGS';
 const SET_USERS = 'SET_USERS';
 
@@ -14,12 +14,11 @@ let initialState = {
 const dialogReducer = (state = initialState, action) => {
     
     switch (action.type) {
-        case SEND_MESSAGE: {
-            return {...state,
-                messageData: [...state.messageData, {id: 1, 
-                    message: action.message, 
-                    myMessage: true
-                }]
+        case SET_NEW_DIALOGS: {
+            return {...state, 
+                dialogs: [...state.dialogs, 
+                state.dialogs.filter(elem => elem.id === action.id)[0], action.message
+                ]
             };
         }
         case SET_DIALOGS: {
@@ -33,8 +32,9 @@ const dialogReducer = (state = initialState, action) => {
     }
 }
 
-export const sendMessage = (message) => ({type: SEND_MESSAGE, message});
 export const setDialogs = (dialogs) => ({type: SET_DIALOGS, dialogs});
+
+export const setNewDialogs = (message, id) => ({type: SET_NEW_DIALOGS, message, id});
 export const setUsers = (users) => ({type: SET_USERS, users});
 
 export const getAllDialogs = () => async (dispatch) => {
@@ -45,6 +45,11 @@ export const getAllDialogs = () => async (dispatch) => {
 export const getUsers = () => async (dispatch) => {
     let res = await dialogsJsonAPI.getUsers();
     dispatch(setUsers(res));
+}
+
+export const sendMessage = (messages, id) => async (dispatch) => {
+    let res = await dialogsJsonAPI.sendMessage(messages, id);
+    dispatch(setNewDialogs(res, id));
 }
 
 export default dialogReducer; 

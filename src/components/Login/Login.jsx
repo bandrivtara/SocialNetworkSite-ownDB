@@ -14,7 +14,7 @@ const LoginForm = (props) => {
 
     return (
         <form className={classes.loginForm} onSubmit={props.handleSubmit}>
-            <div><p>Enter login: bandrivtara@gmail.com</p>and password: test1234</div>
+            <div><p>Enter login: Mike</p>and password: 1234</div>
             <div><Field component={inputRForm} validate={[required]} name={"login"} placeholder={"login"}/></div>
             <div><Field component={inputRForm} name={"password"} placeholder={"Password"} type={"password"} /></div>
             <div><button>Sign In</button></div>
@@ -34,8 +34,14 @@ const Login = (props) => {
     }
 
     return (
-        <div className={classes.formBox}>
+        <div className={classes.formBox} >
             <LoginReduxForm onSubmit={onSubmit} />
+            <div className={classes.usage_box}>
+                Usage. In this project I use My JSON Server which I wrote in my own. 
+                You can check the following server: 
+                 You can use this project-website in two ways:
+                1)
+            </div>
         </div>
     )
 }

@@ -25,7 +25,8 @@ class HomeContainer extends React.Component {
                 <Home photos={this.props.photos} 
                 unfollowedUsers={this.props.unfollowedUsers}
                 follow={this.props.follow} 
-                getUnfollowedUsers={this.props.getUnfollowedUsers}/>
+                getUnfollowedUsers={this.props.getUnfollowedUsers}
+                isAuth={this.props.isAuth}/>
             </div>
         )
     }
@@ -35,7 +36,8 @@ class HomeContainer extends React.Component {
 let mapStateToProps = (state) => ({
     logUserId: state.auth.userId,
     photos: state.photos,
-    unfollowedUsers: state.users.users
+    unfollowedUsers: state.users.users,
+    isAuth: state.auth.isAuth
 })
 
 export default connect(mapStateToProps, { showPhoto, getUnfollowedUsers, follow })(HomeContainer);

@@ -98,5 +98,5 @@ export default compose(
     connect(mapStateToProps,
         { setUserProfile, showUserProfile, updateStatusProfile, uploadPicture, changeFollowed, getFollowers }),
     withRouter,
-    // withAuthRedirect
+    withAuthRedirect
 )(ProfileContainer);

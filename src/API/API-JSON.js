@@ -2,8 +2,7 @@ import * as axios from 'axios';
 
 
 const instanceMy = axios.create({
-    // baseURL: 'https://my-json-server.typicode.com/bandrivtara/Social-Network-db',
-    baseURL: 'http://localhost:3000/',
+    baseURL: 'https://my-server-tb.herokuapp.com/',
 })
 
 export const photosAPI = {
@@ -101,6 +100,11 @@ export const dialogsJsonAPI = {
     },
     getUsers() {
         return instanceMy.get(`users`).then(response => {
+            return response.data;
+        });
+    },
+    sendMessage(messages, id) {
+        return instanceMy.patch(`dialogs/${id}`, { "dialogs": messages }).then(response => {
             return response.data;
         });
     }

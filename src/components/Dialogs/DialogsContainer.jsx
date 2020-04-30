@@ -18,6 +18,20 @@ class DialogsContainer extends React.Component {
             activeDialog: 1
         }
         this.setDialog = this.setDialog.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
+    }
+
+    onSubmit(formData) {
+        let actualMessages = this.props.dialogs.filter(elem => elem.conversantId === this.state.activeDialog)[0];
+
+        let actualDialogId = actualMessages.id;
+        actualMessages.dialogs.push({
+            id: actualMessages.dialogs.length + 1,
+            outgoing: true,
+            dialogText: formData.message
+        })
+        
+        this.props.sendMessage(actualMessages.dialogs, actualDialogId);
     }
 
     setDialog(conversantId) {
@@ -25,12 +39,12 @@ class DialogsContainer extends React.Component {
             activeDialog: conversantId
         })
     }
-    
+
     refreshDialogs() {
         this.props.getAllDialogs();
         this.props.getUsers();
     }
-    
+
     setConversants() {
         let activeUserDialogs = this.props.dialogs.map(elem => (elem.conversantId))
         function filterByUsers(item) {
@@ -40,33 +54,33 @@ class DialogsContainer extends React.Component {
         }
         this.setState({
             conversants: this.props.users.filter(filterByUsers),
-            activeDialog: activeUserDialogs[0]
         })
     }
-    
+
     componentDidUpdate(prevProps) {
         if (this.props !== prevProps) {
             this.setConversants()
         }
     }
-    
+
     componentDidMount() {
         this.refreshDialogs();
     }
-    
+
     render() {
         console.log(this.state.activeDialog)
         return (
-            <Dialogs 
-            conversants={this.state.conversants} 
-            setDialog={this.setDialog}
-            activeDialog={this.state.activeDialog}
-            dialogs={this.props.dialogs}/>
-            )
-        }
+            <Dialogs
+                conversants={this.state.conversants}
+                setDialog={this.setDialog}
+                activeDialog={this.state.activeDialog}
+                dialogs={this.props.dialogs}
+                onSubmit={this.onSubmit} />
+        )
     }
-    
-    
+}
+
+
 let mapStateToProps = (state) => {
 
     return {
@@ -79,5 +93,5 @@ let mapStateToProps = (state) => {
 
 export default compose(
     connect(mapStateToProps, { getAllDialogs, sendMessage, getUsers }),
-    // withAuthRedirect
+    withAuthRedirect
 )(DialogsContainer);

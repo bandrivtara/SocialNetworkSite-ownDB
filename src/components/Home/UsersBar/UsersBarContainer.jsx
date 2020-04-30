@@ -41,13 +41,12 @@ class UsersBarContainer extends React.Component {
                 maxIndexUser: portionNumber,
             }, () => { this.paginator() })
         }
-
     }
+    
 
     componentDidUpdate(prevProps, prevState) {
         if (this.props.users != prevProps.users) {
             this.paginator();
-            this.props.getUnfollowedUsers();
         }
     }
 
@@ -56,7 +55,8 @@ class UsersBarContainer extends React.Component {
             <UsersBar 
             users={this.state.actualUser} 
             getMore={this.getMore} 
-            follow={this.props.follow}/>
+            follow={this.props.follow}
+            isAuth={this.props.isAuth}/>
         )
     }
 }

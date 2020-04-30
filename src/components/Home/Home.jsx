@@ -14,7 +14,8 @@ const Home = (props) => {
             <UsersBarContainer 
             users={props.unfollowedUsers}
             follow={props.follow}
-            getUnfollowedUsers={props.getUnfollowedUsers}/>
+            getUnfollowedUsers={props.getUnfollowedUsers}
+            isAuth={props.isAuth}/>
         </div>
     )
 }

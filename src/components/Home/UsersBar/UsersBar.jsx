@@ -18,7 +18,7 @@ const UsersBar = (props) => {
                             <p>{elem.status}</p>
                         </div>
                     </div>
-                    <button onClick={()=>{props.follow(elem.id)}}><FontAwesomeIcon icon="plus" /></button>
+                    {props.isAuth && <button onClick={()=>{props.follow(elem.id)}}><FontAwesomeIcon icon="plus" /></button>}
                 </div>
             ))
         )

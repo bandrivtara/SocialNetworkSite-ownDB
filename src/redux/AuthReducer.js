@@ -3,6 +3,7 @@ import { authAPI } from '../API/API-JSON'
 import { stopSubmit } from 'redux-form';
 
 const SET_USER_DATA = 'auth/SET_USER_DATA';
+const SET_USER_AVATAR = 'SET_USER_AVATAR';
 
 
 let initialState = {
@@ -21,7 +22,7 @@ const AuthReducer = (state = initialState, action) => {
                 ...state,
                 ...action.data,
             }
-        };
+        }
 
         default:
             return state;
@@ -29,12 +30,7 @@ const AuthReducer = (state = initialState, action) => {
 }
 
 
-export const setAuthUserData = (userId, login, password, isAuth) => {
-    return {
-        type: SET_USER_DATA,
-        data: { userId, login, password, isAuth }
-    }
-}
+export const setAuthUserData = (userId, login, password, isAuth) => ({ type: SET_USER_DATA, data: { userId, login, password, isAuth } });
 
 export const getAuthUserData = () => async (dispatch) => {
     let res = await usersJsonAPI.getUserData();
@@ -42,6 +38,7 @@ export const getAuthUserData = () => async (dispatch) => {
         dispatch(setAuthUserData(res.id, res.login, res.password, res.isAuth));
     }
 }
+
 export const login = (login, password) => async (dispatch) => {
     let res = await authAPI.login(true);
     if (res.login === login && res.password === password) {

@@ -13,7 +13,7 @@ import Login from './components/Login/Login';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers, faMusic, faHeart, faCamera, faComments, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers, faMusic, faHeart, faCamera, faComments, faPlus, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import HeaderContainer from './components/Header/HeaderContainer';
 import { initializeAPP } from './redux/AppReducer';
 import Preloader from './components/common/Preloader/Preloader';
@@ -25,7 +25,7 @@ import HomeContainer from './components/Home/HomeContainer';
 
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
 
-library.add(fab, faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers, faMusic, faHeart, faCamera, faComments, faPlus);
+library.add(fab, faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers, faMusic, faHeart, faCamera, faComments, faPlus, faSignOutAlt);
 
 class App extends React.Component {
 
@@ -36,27 +36,26 @@ class App extends React.Component {
   render() {
     // if (!this.props.initialized) {
 
-    //   return <div className="preloader_center"><Preloader /></div>  
+    //   return <div className="preloader_center"><Preloader /></div>
     // } else {
-    return (
-      <div className="app-wrapper">
+      return (
 
-        <HeaderContainer />
-        <Nav />
-        <div className="app-wrapper-content">
-          <Route path='/home' render={() => <HomeContainer />} />
-          <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
-          <Route path='/dialogs' render={() => <DialogsContainer />} />
-          <Suspense fallback={<div>Loading...</div>}><Route path='/users' render={() => <UsersContainer />} /></Suspense>
-          <Route path='/photos' render={() => <PhotosContainer />} />
-          <Route path='/login' render={() => <Login />} />
+        <div className="app-wrapper">
+          <HeaderContainer />
+          <Nav />
+          <div className="app-wrapper-content">
+            <Route path='/home' render={() => <HomeContainer />} />
+            <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
+            <Route path='/dialogs' render={() => <DialogsContainer />} />
+            <Suspense fallback={<div>Loading...</div>}><Route path='/users' render={() => <UsersContainer />} /></Suspense>
+            <Route path='/photos' render={() => <PhotosContainer />} />
+            <Route path='/login' render={() => <Login />} />
+          </div>
         </div>
+      );
+    // }
 
-      </div>
-    );
   }
-
-  // }
 }
 
 const mapStateToProps = (state) => ({
