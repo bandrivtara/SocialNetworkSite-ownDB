@@ -14,7 +14,7 @@ const ProfileStatistic = (props) => {
 
   let closeModal = () => {
     props.openModalWindow(false)
-}
+  }
 
   return (
     <div className={classes.statistic}>

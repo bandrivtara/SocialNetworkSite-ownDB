@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import classes from './User.module.css';
+
 import photoFile from '../../../assets/images/noUser.png';
 
+import classes from './User.module.css';
 
 const User = (props) => {
     let u = props.user;
@@ -10,7 +11,7 @@ const User = (props) => {
         <div className={classes.user_box}>
             <div className={classes.user_box_info}>
                 <NavLink className={classes.user_box_img} to={'/profile/' + u.id}>
-                    <img src={u.avatar != null ? u.avatar : photoFile} alt="" />
+                    <img src={u.avatar !== null ? u.avatar : photoFile} alt="" />
                     <p>view profile</p>
                 </NavLink>
                 <div>

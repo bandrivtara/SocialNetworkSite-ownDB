@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
 import { setUserProfile, showUserProfile, updateStatusProfile, uploadPicture, changeFollowed, getFollowers } from '../../redux/ProfileReducer';
@@ -55,7 +55,7 @@ class ProfileContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (this.props.match.params.userId != prevProps.match.params.userId) {
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
             this.refreshProfile();
         }
     }
@@ -96,7 +96,13 @@ let mapStateToProps = (state) => ({
 });
 export default compose(
     connect(mapStateToProps,
-        { setUserProfile, showUserProfile, updateStatusProfile, uploadPicture, changeFollowed, getFollowers }),
+        {
+            setUserProfile,
+            showUserProfile,
+            updateStatusProfile,
+            uploadPicture, changeFollowed,
+            getFollowers
+        }),
     withRouter,
     withAuthRedirect
 )(ProfileContainer);

@@ -41,18 +41,20 @@ class PhotosBarContainer extends React.Component {
                 maxIndexPhoto: portionNumber,
             }, () => { this.paginator() })
         }
-        
+
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (this.props.photos != prevProps.photos) {
+    componentDidUpdate(prevProps) {
+        if (this.props.photos !== prevProps.photos) {
             this.paginator();
         }
     }
 
     render() {
         return (
-            <PhotosBar photos={this.state.actualPhoto} getMore={this.getMore} />
+            <PhotosBar
+                photos={this.state.actualPhoto}
+                getMore={this.getMore} />
         )
     }
 }

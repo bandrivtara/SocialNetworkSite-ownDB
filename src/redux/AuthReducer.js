@@ -3,7 +3,6 @@ import { authAPI } from '../API/API-JSON'
 import { stopSubmit } from 'redux-form';
 
 const SET_USER_DATA = 'auth/SET_USER_DATA';
-const SET_USER_AVATAR = 'SET_USER_AVATAR';
 
 
 let initialState = {
@@ -49,7 +48,7 @@ export const login = (login, password) => async (dispatch) => {
 }
 
 export const logout = () => async (dispatch) => {
-    let response = await authAPI.logout(false);
+    await authAPI.logout(false);
     dispatch(setAuthUserData(null, null, null, false));
 }
 

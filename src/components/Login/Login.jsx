@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form'
 import { inputRForm } from '../common/FormsElements/FormsElements';
-import { required, maxLengthCreator } from '../../utilities/validators/validators';
+import { required } from '../../utilities/validators/validators';
 
 import { connect } from 'react-redux';
 import { login } from '../../redux/AuthReducer';
@@ -11,11 +11,10 @@ import classes from './Login.module.css';
 
 const LoginForm = (props) => {
 
-
     return (
         <form className={classes.loginForm} onSubmit={props.handleSubmit}>
-            <div><p>Enter login: Mike</p>and password: 1234</div>
-            <div><Field component={inputRForm} validate={[required]} name={"login"} placeholder={"login"}/></div>
+            <div><p>Enter: Mike</p> password: 1234 <br /> to Sign In</div>
+            <div><Field component={inputRForm} validate={[required]} name={"login"} placeholder={"login"} /></div>
             <div><Field component={inputRForm} name={"password"} placeholder={"Password"} type={"password"} /></div>
             <div><button>Sign In</button></div>
             {props.error && <div className={classesForm.fromSummeryError}>{props.error}</div>}
@@ -37,10 +36,12 @@ const Login = (props) => {
         <div className={classes.formBox} >
             <LoginReduxForm onSubmit={onSubmit} />
             <div className={classes.usage_box}>
-                Usage. In this project I use My JSON Server which I wrote in my own. 
-                You can check the following server: 
-                 You can use this project-website in two ways:
-                1)
+                Usage. In this project I use My JSON Server which I wrote in my own.
+                You can check the following server (db.json): <br /> my-server-tb.herokuapp.com/<br />
+                Now I'm working on:
+                <br /> 1) send comment on post
+                <br />2) delete action on item
+                <br />3) forms validator
             </div>
         </div>
     )

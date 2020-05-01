@@ -22,7 +22,8 @@ const ProfileInfo = (props) => {
         posts={props.posts}
         openModalWindow={props.openModalWindow}
         modalWindow={props.modalWindow} />
-      <UserInfo mainInfo={props.mainInfo}
+      <UserInfo
+        mainInfo={props.mainInfo}
         followed={props.followed}
         updateStatus={props.updateStatus}
         isOwner={props.isOwner}
@@ -30,7 +31,8 @@ const ProfileInfo = (props) => {
         userId={userId}
         changeFollowed={props.changeFollowed}
       />
-      <ProfileStatistic posts={props.posts}
+      <ProfileStatistic
+        posts={props.posts}
         followers={props.followers}
         openModalWindow={props.openModalWindow}
         modalWindow={props.modalWindow} />

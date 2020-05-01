@@ -42,10 +42,7 @@ const ChangeAvatar = (props) => {
     }
 
     let activePicture = `https://robohash.org/set_set${category}/${picture}/`;
-
-
-
-
+    
     return (
         <div className="modalWindow">
             <div className={classes.panel}>

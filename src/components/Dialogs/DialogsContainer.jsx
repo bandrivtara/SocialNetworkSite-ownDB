@@ -1,13 +1,10 @@
 import React from 'react';
-
-import Dialogs from './Dialogs';
-
-import { getAllDialogs, sendMessage, getUsers } from '../../redux/DialogReducer';
-
 import { connect } from 'react-redux';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
+import Dialogs from './Dialogs';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { getAllDialogs, sendMessage, getUsers } from '../../redux/DialogReducer';
 
 class DialogsContainer extends React.Component {
     constructor(props) {
@@ -15,7 +12,7 @@ class DialogsContainer extends React.Component {
         this.state = {
             dialogs: [],
             conversants: [],
-            activeDialog: 1
+            activeDialog: null
         }
         this.setDialog = this.setDialog.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
@@ -30,7 +27,7 @@ class DialogsContainer extends React.Component {
             outgoing: true,
             dialogText: formData.message
         })
-        
+
         this.props.sendMessage(actualMessages.dialogs, actualDialogId);
     }
 
@@ -68,7 +65,6 @@ class DialogsContainer extends React.Component {
     }
 
     render() {
-        console.log(this.state.activeDialog)
         return (
             <Dialogs
                 conversants={this.state.conversants}
@@ -88,8 +84,6 @@ let mapStateToProps = (state) => {
         users: state.dialog.users
     }
 }
-
-
 
 export default compose(
     connect(mapStateToProps, { getAllDialogs, sendMessage, getUsers }),

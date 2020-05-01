@@ -1,16 +1,17 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import classesHome from '../Home.module.css';
 import classes from './UsersBar.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NavLink } from 'react-router-dom';
+
 
 const UsersBar = (props) => {
 
     let getUser = () => {
         return (
             props.users.map(elem => (
-                <div className={classes.user_box}>
+                <div key={elem.id} className={classes.user_box}>
                     <div className={classes.user_box_l}>
                         <img src={elem.avatar} alt="ava" />
                         <div className={classes.user_info}>
@@ -18,7 +19,7 @@ const UsersBar = (props) => {
                             <p>{elem.status}</p>
                         </div>
                     </div>
-                    {props.isAuth && <button onClick={()=>{props.follow(elem.id)}}><FontAwesomeIcon icon="plus" /></button>}
+                    {props.isAuth && <button onClick={() => { props.follow(elem.id) }}><FontAwesomeIcon icon="plus" /></button>}
                 </div>
             ))
         )

@@ -21,7 +21,7 @@ class UsersBarContainer extends React.Component {
     paginator() {
         let min = this.state.minIndexUser;
         let max = this.state.maxIndexUser;
-        let paginatedUsers = this.props.users.filter((elem,index) => index >= min && index <= max)
+        let paginatedUsers = this.props.users.filter((elem, index) => index >= min && index <= max)
         this.setState({
             actualUser: paginatedUsers,
             countUsers: this.props.users.length
@@ -42,21 +42,20 @@ class UsersBarContainer extends React.Component {
             }, () => { this.paginator() })
         }
     }
-    
 
-    componentDidUpdate(prevProps, prevState) {
-        if (this.props.users != prevProps.users) {
+    componentDidUpdate(prevProps) {
+        if (this.props.users !== prevProps.users) {
             this.paginator();
         }
     }
 
     render() {
         return (
-            <UsersBar 
-            users={this.state.actualUser} 
-            getMore={this.getMore} 
-            follow={this.props.follow}
-            isAuth={this.props.isAuth}/>
+            <UsersBar
+                users={this.state.actualUser}
+                getMore={this.getMore}
+                follow={this.props.follow}
+                isAuth={this.props.isAuth} />
         )
     }
 }

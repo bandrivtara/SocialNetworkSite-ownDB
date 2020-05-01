@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 import classes from '../Dialogs.module.css';
 import MessagesList from './MessagesList/MessagesList';
@@ -9,7 +9,6 @@ class Messages extends React.Component {
     scrollToBottom = () => {
         this.messagesEnd.scrollIntoView({ block: "nearest" });
     }
-
 
     componentDidUpdate() {
         this.scrollToBottom();
@@ -35,7 +34,7 @@ class Messages extends React.Component {
                     </div>
                 </div>
                 <div className={classes.form_box}>
-                    <SendMessageForm onSubmit={this.props.onSubmit} />
+                    { this.props.activeDialog && <SendMessageForm onSubmit={this.props.onSubmit} />}
                 </div>
             </div>
         );

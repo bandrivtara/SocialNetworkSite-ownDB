@@ -1,31 +1,37 @@
-import React, { Component, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
 import { compose } from 'redux';
 
 import './App.css';
+
 import Nav from './components/Nav/Nav';
-import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import HomeContainer from './components/Home/HomeContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
-import { Route } from 'react-router-dom';
-import Login from './components/Login/Login';
+import HeaderContainer from './components/Header/HeaderContainer';
+import PhotosContainer from './components/Photos/PhotosContainer';
+import { initializeAPP } from './redux/AppReducer';
+import Preloader from './components/common/Preloader/Preloader';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers, faMusic, faHeart, faCamera, faComments, faPlus, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import HeaderContainer from './components/Header/HeaderContainer';
-import { initializeAPP } from './redux/AppReducer';
-import Preloader from './components/common/Preloader/Preloader';
-import PhotosContainer from './components/Photos/PhotosContainer';
-import HomeContainer from './components/Home/HomeContainer';
 
 
 
 
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
 
-library.add(fab, faCubes, faSearch, faEnvelope, faBell, faHome, faUser, faUsers, faMusic, faHeart, faCamera, faComments, faPlus, faSignOutAlt);
+library.add(
+  fab, faCubes, 
+  faSearch, faEnvelope, 
+  faBell, faHome, faUser, 
+  faUsers, faMusic, 
+  faHeart, faCamera, 
+  faComments, faPlus, 
+  faSignOutAlt);
 
 class App extends React.Component {
 
@@ -44,7 +50,7 @@ class App extends React.Component {
           <HeaderContainer />
           <Nav />
           <div className="app-wrapper-content">
-            <Route path='/home' render={() => <HomeContainer />} />
+            <Route exact path={['/', '/home']} render={() => <HomeContainer />} />
             <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
             <Route path='/dialogs' render={() => <DialogsContainer />} />
             <Suspense fallback={<div>Loading...</div>}><Route path='/users' render={() => <UsersContainer />} /></Suspense>

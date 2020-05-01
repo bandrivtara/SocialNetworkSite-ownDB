@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 
 import { connect } from 'react-redux';
 import Photos from './Photos';
@@ -45,9 +45,7 @@ class PhotosAPIComponent extends React.Component {
   }
 }
 
-
 let mapStateToProps = (state) => {
-
   return {
     photos: state.photos,
     isFetching: state.photos.isFetching

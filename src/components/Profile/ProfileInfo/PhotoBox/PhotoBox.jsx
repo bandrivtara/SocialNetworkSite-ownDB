@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import photoFile from '../../../../assets/images/noUser.png'
-import classes from './PhotoBox.module.css';
 import ChangeAvatar from './ChangeAvatar/ChangeAvatar';
+
+import classes from './PhotoBox.module.css';
 
 const PhotoBox = (props) => {
 
@@ -14,14 +16,12 @@ const PhotoBox = (props) => {
     const closeModal = () => {
         props.openModalWindow(false)
     }
-    
-    const photoCoverPictures = props.posts.map((elem, index) => {
-            if (index < 8) {
-                return (
-                    <li key={index}><img src={elem.cover} alt="" /></li>
-                )
-            }
-        })
+
+    const photoCoverPictures = props.posts.filter(elem => elem.id <= 8).map((elem, index) => {
+            return (
+                <li key={index}><img src={elem.cover} alt="cover" /></li>
+            )
+    })
 
 
     return (

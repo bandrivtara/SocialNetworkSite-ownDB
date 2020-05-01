@@ -11,12 +11,10 @@ let initialState = {
 const HomeReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case SET_GLOBAL_POSTS: {
+        case SET_GLOBAL_POSTS:
             return {
                 ...state, globalPosts: action.globalPosts
             }
-        };
-
         default:
             return state;
     }

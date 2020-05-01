@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React  from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import classes from './MyPosts.module.css';
@@ -16,9 +16,13 @@ const MyPosts = React.memo(props => {
   let postElements = props.posts.map((post) => {
 
     return (
-      <Post key={post.id} message={post.body}
-        likeCounts={post.likes} id={post.id} title={post.title}
-        coverImage={post.cover} openModalWindow={props.openModalWindow}
+      <Post
+        key={post.id}
+        message={post.body}
+        likeCounts={post.likes}
+        id={post.id} title={post.title}
+        coverImage={post.cover}
+        openModalWindow={props.openModalWindow}
         state={props.state} />
     )
   })

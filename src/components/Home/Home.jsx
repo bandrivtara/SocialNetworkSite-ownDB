@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PhotosBarContainer from './PhotosBar/PhotosBarContainer';
 import PostsBarContainer from './PostsBar/PostsBarContainer';
 import UsersBarContainer from './UsersBar/UsersBarContainer';

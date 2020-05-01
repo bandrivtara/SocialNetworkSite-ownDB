@@ -106,5 +106,4 @@ export const getUnfollowedUsers = () => async (dispatch) => {
 }
 
 
-
 export default UsersReducer;

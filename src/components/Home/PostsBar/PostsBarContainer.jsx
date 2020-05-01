@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import PostsBar from './PostsBar';
@@ -19,9 +19,9 @@ class PostsBarContainer extends React.Component {
         this.openPostModalWindow = this.openPostModalWindow.bind(this);
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (this.state.firstLoad) {
-            if (this.props.globalPosts != prevProps.globalPosts) {
+            if (this.props.globalPosts !== prevProps.globalPosts) {
                 this.setState({
                     posts: this.props.globalPosts,
                     page: this.state.page + 1,
@@ -59,7 +59,6 @@ class PostsBarContainer extends React.Component {
 
 
     render() {
-        console.log(this.state.page)
         return (
             <PostsBar
                 posts={this.state.posts}

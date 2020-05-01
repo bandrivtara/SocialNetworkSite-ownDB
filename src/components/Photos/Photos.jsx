@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
 
 import classes from './Photos.module.css';
+
 import plusPNG from '../../assets/images/plus.png'
+
 const Photos = (props) => {
 
     let activeClass = (elem) => {
@@ -33,7 +35,7 @@ const Photos = (props) => {
                 {props.state.photos.adress.filter(
                     elem => props.album ? (elem.albumId === props.album) : elem.albumId)
                     .map(elem => {
-                        return (<div key={elem.id} className={classes.flexItem}><img src={elem.url} alt="image" /></div>)
+                        return (<div key={elem.id} className={classes.flexItem}><img src={elem.url} alt="" /></div>)
                     })}
                 <button
                     className={classes.flexItem + " " + classes.addPhoto}

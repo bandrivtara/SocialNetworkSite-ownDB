@@ -1,18 +1,17 @@
 import React from 'react';
 import InfiniteScroll from "react-infinite-scroll-component";
-
-import classesHome from '../Home.module.css';
-import classes from './PostsBar.module.css';
-import Preloader from '../../common/Preloader/Preloader'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import PostWindow from '../../Profile/MyPosts/Post/PostWindow/PostWindow';
+import classes from './PostsBar.module.css';
+
+import Preloader from '../../common/Preloader/Preloader'
+import ModalWindow from '../../common/ModalWindow/ModalWindow';
+
 
 const PostsBar = (props) => {
     return (
         <div className={classes.posts_container}>
-            
+
             <InfiniteScroll
                 dataLength={props.posts.length}
                 next={props.fetchPosts}
@@ -33,9 +32,13 @@ const PostsBar = (props) => {
                                 <p><FontAwesomeIcon icon="heart" /> {elem.likes}</p>
                                 <p><FontAwesomeIcon icon="comments" /> {elem.comments.length}</p>
                             </div>
-                            {props.handleWindow === elem.id && <PostWindow message={elem.body}
-                                photo={elem.cover} title={elem.title}
-                                closeModal={props.openPostModalWindow} comments={elem.comments}/>}
+                            {props.handleWindow === elem.id &&
+                                <ModalWindow
+                                    message={elem.body}
+                                    photo={elem.cover}
+                                    title={elem.title}
+                                    closeModal={props.openPostModalWindow}
+                                    comments={elem.comments} />}
                         </div>
                     )
                 })}

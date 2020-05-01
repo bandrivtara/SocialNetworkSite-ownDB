@@ -1,5 +1,4 @@
-import { usersAPI, profileAPI } from '../API/API'
-import { usersJsonAPI, profileJsonAPI } from '../API/API-JSON'
+import { profileJsonAPI } from '../API/API-JSON'
 
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -28,7 +27,7 @@ const profileReducer = (state = initialState, action) => {
 
 
     switch (action.type) {
-        case ADD_POST: {
+        case ADD_POST:
             return {
                 ...state,
                 posts: {
@@ -40,7 +39,6 @@ const profileReducer = (state = initialState, action) => {
                     }]
                 }
             }
-        };
         case SET_USER_PROFILE: {
             return (
                 {
@@ -49,41 +47,34 @@ const profileReducer = (state = initialState, action) => {
                 }
             )
         }
-        case SET_MAIN_INFO_PROFILE: {
+        case SET_MAIN_INFO_PROFILE:
             return (
                 { ...state, mainInfo: action.profile }
             )
-        }
-        case SET_USER_POSTS: {
+        case SET_USER_POSTS:
             return (
                 { ...state, posts: action.posts.posts[0] }
             )
-        }
-        case SET_NEW_STATUS: {
+        case SET_NEW_STATUS:
             return (
                 { ...state, mainInfo: { ...state.mainInfo, status: action.status } }
             )
-        }
-        case SAVE_PHOTO_SUCCESS: {
+        case SAVE_PHOTO_SUCCESS:
             return (
                 { ...state, mainInfo: { ...state.mainInfo, avatar: action.src } }
             )
-        }
-        case SET_FOLLOWED: {
+        case SET_FOLLOWED:
             return (
                 { ...state, followed: action.status }
             )
-        }
-        case SET_FOLLOWERS: {
+        case SET_FOLLOWERS:
             return (
                 { ...state, followers: action.followers }
             )
-        }
-        case TOOGLE_IS_FETCHING: {
+        case TOOGLE_IS_FETCHING:
             return (
                 { ...state, isFetching: action.isFetching }
             )
-        }
 
         default:
             return state;
@@ -113,17 +104,17 @@ export const showUserProfile = (userId, logUserId) => async (dispatch) => {
 }
 
 export const updateStatusProfile = (status, id) => async (dispatch) => {
-    let response = await profileJsonAPI.updateStatusProfile(status, id);
+    await profileJsonAPI.updateStatusProfile(status, id);
     dispatch(setNewStatus(status));
 }
 
 export const uploadPicture = (src, id) => async (dispatch) => {
-    let response = await profileJsonAPI.uploadPicture(src, id);
+    await profileJsonAPI.uploadPicture(src, id);
     dispatch(savePhotoSuccess(src));
 }
 
 export const changeFollowed = (status, id) => async (dispatch) => {
-    let response = await profileJsonAPI.changeFollowed(status, id);
+    await profileJsonAPI.changeFollowed(status, id);
     dispatch(setFollowed(status));
 }
 

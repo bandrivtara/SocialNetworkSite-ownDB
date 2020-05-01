@@ -1,16 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { addPostActionCreator } from '../../../redux/ProfileReducer';
-
 import MyPosts from './MyPosts';
-import { connect } from 'react-redux';
 
 class MyPostsContainer extends React.Component {
 
   render() {
     return (
-      <MyPosts posts={this.props.posts} openModalWindow={this.props.openModalWindow}
-      state={this.props.state} isOwner={this.props.isOwner} addPost={this.props.addPost}/>
+      <MyPosts
+        posts={this.props.posts}
+        openModalWindow={this.props.openModalWindow}
+        state={this.props.state}
+        isOwner={this.props.isOwner}
+        addPost={this.props.addPost} />
     )
   }
 }
