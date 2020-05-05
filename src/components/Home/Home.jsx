@@ -11,7 +11,7 @@ const Home = (props) => {
         <div className={classes.home_container}>
             <PhotosBarContainer 
             photos={props.photos}/>
-            <PostsBarContainer />
+            <PostsBarContainer isAuth={props.isAuth}/>
             <UsersBarContainer 
             users={props.unfollowedUsers}
             follow={props.follow}

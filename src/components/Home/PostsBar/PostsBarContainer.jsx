@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import PostsBar from './PostsBar';
 
-import { getGlobalPosts } from '../../../redux/HomeReducer';
+import { getGlobalPosts, sendComment } from '../../../redux/HomeReducer';
 
 class PostsBarContainer extends React.Component {
 
@@ -17,6 +17,7 @@ class PostsBarContainer extends React.Component {
         }
         this.fetchPosts = this.fetchPosts.bind(this);
         this.openPostModalWindow = this.openPostModalWindow.bind(this);
+        this.sendComment = this.sendComment.bind(this);
     }
 
     componentDidUpdate(prevProps) {
@@ -57,21 +58,34 @@ class PostsBarContainer extends React.Component {
         }
     }
 
+    sendComment(comment, postId) {
+        let post = this.state.posts.filter(elem => elem.id === postId);
+        post[0].comments.push({
+            id: post[0].comments.length + 1,
+            userId: this.props.isAuthUser.userId,
+            comentator: this.props.isAuthUser.login,
+            text: comment
+        })
+        this.props.sendComment(post[0], postId)
+    }
 
     render() {
         return (
             <PostsBar
                 posts={this.state.posts}
                 fetchPosts={this.fetchPosts}
-                openPostModalWindow={this.openPostModalWindow} 
-                handleWindow={this.state.handleWindow}/>
+                openPostModalWindow={this.openPostModalWindow}
+                handleWindow={this.state.handleWindow}
+                sendComment={this.sendComment} 
+                isAuth={this.props.isAuth}/>
         )
     }
 }
 
 
 let mapStateToProps = (state) => ({
-    globalPosts: state.home.globalPosts
+    globalPosts: state.home.globalPosts,
+    isAuthUser: state.auth
 })
 
-export default connect(mapStateToProps, { getGlobalPosts })(PostsBarContainer);
+export default connect(mapStateToProps, { getGlobalPosts, sendComment })(PostsBarContainer);

@@ -34,11 +34,14 @@ const PostsBar = (props) => {
                             </div>
                             {props.handleWindow === elem.id &&
                                 <ModalWindow
+                                    postId={elem.id}
                                     message={elem.body}
                                     photo={elem.cover}
                                     title={elem.title}
                                     closeModal={props.openPostModalWindow}
-                                    comments={elem.comments} />}
+                                    comments={elem.comments} 
+                                    sendComment={props.sendComment}
+                                    isAuth={props.isAuth}/>}
                         </div>
                     )
                 })}

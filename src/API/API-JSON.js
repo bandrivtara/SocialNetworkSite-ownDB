@@ -90,7 +90,13 @@ export const postsJsonAPI = {
         return instanceMy.get(`global_posts?_page=${page}&_limit=5`).then(response => {
             return response.data;
         });
+    },
+    sendComment(post, postId) {
+        return instanceMy.patch(`global_posts/${postId}`, post).then(response => {
+            return response.data;
+        });
     }
+    
 }
 export const dialogsJsonAPI = {
     getAllDialogs() {
