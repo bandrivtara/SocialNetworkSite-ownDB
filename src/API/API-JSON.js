@@ -17,6 +17,11 @@ export const usersJsonAPI = {
             return response.data;
         })
     },
+    getAllUsers() {
+        return instanceMy.get(`users`).then(responce => {
+            return responce.data;
+        })
+    },
     getUnfollowedUsers() {
         return instanceMy.get(`users?followed=false`).then(response => {
             return response.data;

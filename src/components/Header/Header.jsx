@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import classes from './Header.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SearchUserContainer from './SearchUser/SearchUserContainer';
 
 const Header = (props) => {
     return (
@@ -12,15 +13,12 @@ const Header = (props) => {
                 <a href="/"><FontAwesomeIcon icon="cubes" />Boxes</a>
             </div>
             <div className={classes.r_side}>
-                <div className={classes.search}>
-                    {/* <input type="text" placeholder="Search here" /> */}
-                    {/* <button><FontAwesomeIcon icon="search" /></button> */}
-                </div>
+                <SearchUserContainer/>
                 <div className={classes.notifications}>
-                    {/* <FontAwesomeIcon icon="bell" /> */}
+                    <FontAwesomeIcon icon="bell" />
                 </div>
                 <div className={classes.messages}>
-                    {/* <FontAwesomeIcon icon="envelope" /> */}
+                    <FontAwesomeIcon icon="envelope" />
                 </div>
                 <div className={classes.login_block}>
                     {props.isAuth ?

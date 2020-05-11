@@ -38,7 +38,7 @@ export const getGlobalPosts = (page) => async (dispatch) => {
 }
 
 export const sendComment = (post, postId) => async (dispatch) => {
-    let res = await postsJsonAPI.sendComment(post, postId);
+    await postsJsonAPI.sendComment(post, postId);
     dispatch(setNewPost(post, postId));
 }
 
