@@ -1,5 +1,7 @@
 # Social-Network site created using React-Redux
 
+A social network analogue with server requests. Used css-module to style SPA. The structure is divided into three main blocks: User Interface, Business Logic Layer and API files requests. Redux was used like global storage. 
+
 Visit to see live (please wait few minutes for loading page): [https://social-netwok.herokuapp.com/home](https://social-netwok.herokuapp.com/home).
 Visit to see DataBase (Json server): [http://my-server-tb.herokuapp.com/](http://my-server-tb.herokuapp.com/).
 
