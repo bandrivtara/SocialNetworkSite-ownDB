@@ -105,10 +105,6 @@ export const getUnfollowedUsers = () => async (dispatch) => {
     dispatch(setUnfollowedUsers(data));
 }
 
-export const getAllUsers = () => async (dispatch) => {
-    let allUsers = await usersJsonAPI.getAllUsers();
-    dispatch(setUsers(allUsers));
-}
 
 
 export default UsersReducer;

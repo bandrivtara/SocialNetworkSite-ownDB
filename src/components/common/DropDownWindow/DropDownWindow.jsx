@@ -1,5 +1,6 @@
-import React from 'react'
-import classes from './DropDownWindow.module.css'
+import React from 'react';
+import classes from './DropDownWindow.module.css';
+import { NavLink } from 'react-router-dom';
 
 const DropDownWindow = (props) => {
     return (
@@ -8,7 +9,7 @@ const DropDownWindow = (props) => {
             <ul className={classes.items}>
                 {props.items.map(elem => {
                     return (
-                        <li key={elem.id}>{elem.name}</li>
+                        <li className={classes.userItem} key={elem.id}> <NavLink to={`/profile/${elem.id}`}>{elem.name}</NavLink> </li>
                     )
                 })}
             </ul>

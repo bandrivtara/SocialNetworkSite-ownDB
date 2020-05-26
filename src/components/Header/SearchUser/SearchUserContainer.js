@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import SearchUser from './SearchUser';
 import { connect } from 'react-redux';
 
-import { getAllUsers } from '../../../redux/UsersReducer';
+import { getAllUsers } from '../../../redux/NavReducer';
 
 export class SearchUserContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            filter: "",
+            filter: '',
             filteredUsers: [],
             activeDropDownWindow: false
         }
@@ -64,7 +64,7 @@ export class SearchUserContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    users: state.users.users
+    users: state.nav.users
 })
 
 export default connect(mapStateToProps, { getAllUsers })(SearchUserContainer)

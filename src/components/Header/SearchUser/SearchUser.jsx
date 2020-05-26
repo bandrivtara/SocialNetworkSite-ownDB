@@ -11,8 +11,10 @@ const SearchUser = (props) => {
                     placeholder="Search here"
                     value={props.filter}
                     onChange={props.setFilter} 
+                    tabIndex="0"
                     onFocus={()=>{props.showDropWindow(true)}}
-                    onBlur={()=>{props.showDropWindow(false)}}/>
+                    onBlur={()=>{props.showDropWindow(false)}}
+                    />
                 <button><FontAwesomeIcon icon="search" /></button>
             </div>
             {props.activeDropDownWindow && <DropDownWindow
