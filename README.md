@@ -6,24 +6,24 @@ Visit to see DataBase (Json server): [http://my-server-tb.herokuapp.com/](http:/
 
 ### Key features:
 
-1.Pagination
-2.Searching
-3.Categorisation
-4.Fake API from Json fake Rest server
-5.Best practices of developing react application implemented
-6.Preloader
-7.CRUD operations
-8.Scroll-loading
-9.Authorization
+1. Pagination
+2. Searching
+3. Categorisation
+4. Fake API from Json fake Rest server
+5. Best practices of developing react application implemented
+6. Preloader
+7. CRUD operations
+8. Scroll-loading
+9. Authorization
 
 ### Main pages: 
 
-1.Login
-2.Home
-3.Messages
-4.Users
-5.Photos
-6.Profile
+1. Login
+2. Home
+3. Messages
+4. Users
+5. Photos
+6. Profile
 
 ## Documentation
 
@@ -35,9 +35,9 @@ Authorization using login (Mike) and password (1234). If you are not login you c
 ### `2.Home`
 ![Image alt](https://github.com/bandrivtara/SocialNetworkSite-ownDB/raw/master/src/assets/view/Home.png)
 
-Left sidebar: load new photos on click 'More photos'. On click 'Tranding Photos' navigate to 'Photos' category.
-Center content: load all posts with actual 'likes' and 'comments' from different users using react-infinite-scroll. On posts click opened post in modal window wich also content comments.
-Right sidebar: load only unfollowed users on click 'More Users'. On click 'You may know' navigate to 'Users' category.
+* Left sidebar: load new photos on click 'More photos'. On click 'Tranding Photos' navigate to 'Photos' category.
+* Center content: load all posts with actual 'likes' and 'comments' from different users using react-infinite-scroll. On posts click opened post in modal window wich also content comments.
+* Right sidebar: load only unfollowed users on click 'More Users'. On click 'You may know' navigate to 'Users' category.
 
 ### `3.Messages`
 ![Image alt](https://github.com/bandrivtara/SocialNetworkSite-ownDB/raw/master/src/assets/view/Messages.png)
@@ -63,7 +63,7 @@ Profile page which content users profile. Cover pictures automaticly chooses fro
 
 Actual user posts. In your own profile you can add new post
 
-### `Json server`
+## Json server
 My Json Server:
 ![Image alt](https://github.com/bandrivtara/SocialNetworkSite-ownDB/raw/master/src/assets/view/DB.png)
 
