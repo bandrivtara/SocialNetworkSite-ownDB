@@ -9,7 +9,7 @@ Visit to see DataBase (Json server): [http://my-server-tb.herokuapp.com/](http:/
 1. Pagination
 2. Searching
 3. Categorisation
-4. Fake API from Json fake Rest server
+4. Fake API from Json server
 5. Best practices of developing react application implemented
 6. Preloader
 7. CRUD operations
@@ -57,7 +57,7 @@ Photos with albums (categorization). Unfortunately, It not possible to add new p
 ### `6.Profile`
 ![Image alt](https://github.com/bandrivtara/SocialNetworkSite-ownDB/raw/master/src/assets/view/Profile2.png)
 
-Profile page which content users profile. Cover pictures automaticly chooses from your posts cover. You can change avatar and status clicked on these items (only your own profile). Also you can open your 'Followers'
+Profile page which content users profile. Cover pictures automaticly chooses from your posts cover. You can change avatar and status clicked on these items (only your own profile). Also you can open your 'Followers' and search.
 
 ![Image alt](https://github.com/bandrivtara/SocialNetworkSite-ownDB/raw/master/src/assets/view/Profile2.png)
 
